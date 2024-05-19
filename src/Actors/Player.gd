@@ -78,7 +78,6 @@ func above_head_is_empty() -> bool:
 	return result
 
 func update_animations(horizontal_direction):
-	print(is_on_floor())
 	if dashing:
 		ap.play("dash_roll")
 	else:
