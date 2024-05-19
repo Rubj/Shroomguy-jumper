@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhuijr3vn2yru"]
+
+[ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_maed2"]
+[ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="1_pnlgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2ed2"]
+size = Vector2(61, 72)
+
+[sub_resource type="QuadMesh" id="QuadMesh_d0keg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xef3y"]
+size = Vector2(1162, 100)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(288, 316)
+script = ExtResource("1_maed2")
+
+[node name="ShroomguyWalk0000" type="Sprite2D" parent="Player"]
+position = Vector2(1, -50.5)
+scale = Vector2(0.0545, 0.0545)
+texture = ExtResource("1_pnlgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1.5, -38)
+shape = SubResource("RectangleShape2D_q2ed2")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
+modulate = Color(0.0470588, 0, 0.266667, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_d0keg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_xef3y")
