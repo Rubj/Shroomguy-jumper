@@ -78,23 +78,21 @@ func above_head_is_empty() -> bool:
 	return result
 
 func update_animations(horizontal_direction):
-		
-	if is_on_floor():
-		if horizontal_direction == 0:
-			if dashing:
-				ap.play("dash_roll")
+	print(is_on_floor())
+	if dashing:
+		ap.play("dash_roll")
+	else:
+		if is_on_floor():
+			if horizontal_direction == 0:
 				if is_crouching:
 					ap.play("crouch_idle")
+				else:
+					ap.play("idle")
 			else:
-				ap.play("idle")
-		else:
-			if is_crouching:
-				ap.play("crouch_walk")
-			else:
-				ap.play("walk")
-	else:
-		if dashing:
-			ap.play("dash_roll")
+				if is_crouching:
+					ap.play("crouch_walk")
+				else:
+					ap.play("walk")
 		elif velocity.y < 0:
 			ap.play("jump")
 		elif velocity.y > 0:
