@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 100
+@export var run_speed = 300
 @export var gravity = 40
 @export var jump_force = 150
 @export var dash_speed = 500
@@ -13,6 +14,8 @@ extends CharacterBody2D
 
 var dashing = false
 var can_dash = true
+
+var running = false
 
 var is_crouching = false
 var stuck_under_object = false
@@ -36,6 +39,13 @@ func _physics_process(delta):
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == 1)
 	
+	if Input.is_action_pressed("hold run") and velocity.x != 0:
+		running = true
+		velocity.x = run_speed * horizontal_direction
+	if !Input.is_action_pressed("hold run"):
+		running = false
+#	print(running)
+	
 	if Input.is_action_just_pressed("crouch"):
 		crouch()
 	elif  Input.is_action_just_released("crouch"):
@@ -49,15 +59,6 @@ func _physics_process(delta):
 		if !Input.is_action_pressed("crouch"):
 			stand()
 			stuck_under_object = false
-	
-#	-- OLD DASH --
-#	if Input.is_action_just_pressed("dash") and can_dash:
-#		dashing = true
-#		can_dash = false
-#		$dash_timer.start()
-#		$dash_again_timer.start()
-#		var mouse_direction = get_local_mouse_position().normalized()
-#		velocity = Vector2(dash_speed * mouse_direction.x, dash_speed * mouse_direction.y)
 		
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dashing = true
@@ -91,7 +92,10 @@ func update_animations(horizontal_direction):
 				if is_crouching:
 					ap.play("crouch_walk")
 				else:
-					ap.play("walk")
+					if running:
+						ap.play("run")
+					else:
+						ap.play("walk")
 		elif velocity.y < 0:
 			ap.play("jump")
 		elif velocity.y > 0:

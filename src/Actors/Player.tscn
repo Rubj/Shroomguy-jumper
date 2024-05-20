@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhuijr3vn2yru"]
+[gd_scene load_steps=27 format=3 uid="uid://bhuijr3vn2yru"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_maed2"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy idle spritesheet.png" id="2_qpnnv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/shroomguy crouch walk spritesheet.png" id="7_kyc5c"]
 [ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/shroomguy dash roll spritesheet.png" id="9_kn26i"]
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="9_nbcxj"]
+[ext_resource type="Texture2D" uid="uid://bxsodf0vvgv8m" path="res://assets/shroomguy run spritesheet.png" id="10_577ok"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="10_kcc42"]
 [ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="12_hnldh"]
 
@@ -435,6 +436,60 @@ tracks/3/keys = {
 "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11, 12, 13, 14, 15]
 }
 
+[sub_resource type="Animation" id="Animation_vs0gq"]
+resource_name = "run"
+length = 1.05
+loop_mode = 1
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_577ok")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6, 0.675, 0.75, 0.825, 0.9, 0.975),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ilspw"]
 _data = {
 "RESET": SubResource("Animation_qib5r"),
@@ -444,6 +499,7 @@ _data = {
 "fall": SubResource("Animation_vy2r7"),
 "idle": SubResource("Animation_bwvlh"),
 "jump": SubResource("Animation_xa05n"),
+"run": SubResource("Animation_vs0gq"),
 "walk": SubResource("Animation_objuw")
 }
 
@@ -461,7 +517,6 @@ size = Vector2(42, 54)
 z_index = 1
 position = Vector2(576, 518)
 script = ExtResource("1_maed2")
-speed = 150
 gravity = 30
 jump_force = 600
 dash_speed = 1000
@@ -482,10 +537,10 @@ position = Vector2(2, -105)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("../Sprite2D")
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_ilspw")
 }
-autoplay = "idle"
 
 [node name="CrouchRaycast_1" type="RayCast2D" parent="Player"]
 position = Vector2(-30, -6)
