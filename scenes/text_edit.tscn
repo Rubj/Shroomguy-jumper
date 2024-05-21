@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dpc00c71oax0e"]
+
+[node name="TextEdit" type="TextEdit"]
+offset_left = 353.0
+offset_top = 134.0
+offset_right = 803.0
+offset_bottom = 418.0
+text = "ToDo
+- Attack animation and implementation
+- Run start line and finish line with timer
+and stuff. (Kõige lihtsam game loop -- again but faster)
+- Tileset art and implementation. (Godot terrains)
+- Title screen and menu
+-"
+editable = false
+selecting_enabled = false
