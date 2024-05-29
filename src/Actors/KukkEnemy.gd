@@ -39,8 +39,12 @@ func _process(delta):
 
 func move(delta):
 	if !dead:
-		if !is_chasing:
+		if !is_chasing and !taking_damage:
 			velocity += dir * speed * delta
+		elif !is_chasing and take_damage:
+			var knockback_dir = position.direction_to(player.position) * knockback
+			velocity.x = knockback_dir.x
+			velocity.y = (gravity - gravity) -15
 		elif is_chasing and !taking_damage:
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
