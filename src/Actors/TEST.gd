@@ -44,3 +44,5 @@ func dash(direction):
 	
 	# Disable dashing temporarily
 	can_dash = false
+
+

@@ -1,0 +1,148 @@
+[gd_scene load_steps=10 format=3 uid="uid://kb3h7dpr4me6"]
+
+[ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
+[ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
+[ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="3_tpeul"]
+[ext_resource type="PackedScene" uid="uid://dpc00c71oax0e" path="res://scenes/text_edit.tscn" id="4_e8pk0"]
+[ext_resource type="PackedScene" uid="uid://bxvc0qlmlobqe" path="res://scenes/kukk_enemy.tscn" id="5_iwqty"]
+[ext_resource type="PackedScene" uid="uid://bhuijr3vn2yru" path="res://scenes/Player.tscn" id="6_tbsjw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em1i4"]
+size = Vector2(1162, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mevj4"]
+size = Vector2(42, 54)
+
+[node name="World" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
+modulate = Color(0.0117647, 0.227451, 0.392157, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(1204, -76)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground2"]
+modulate = Color(0.14902, 0, 0.588235, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2(1371, -229)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground3"]
+modulate = Color(0.133333, 0, 0.533333, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2(2305, 22)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground4"]
+modulate = Color(0.223529, 0.027451, 0.568627, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground5" type="StaticBody2D" parent="."]
+position = Vector2(2625, -76)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground5"]
+modulate = Color(0.247059, 0, 0.901961, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground6" type="StaticBody2D" parent="."]
+position = Vector2(2670, -176)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground6"]
+modulate = Color(0.0235294, 0.211765, 0.490196, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 100)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6"]
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="Ground7" type="StaticBody2D" parent="."]
+position = Vector2(1327, -391)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground7"]
+modulate = Color(0.168627, 0, 0.65098, 1)
+position = Vector2(576, 605)
+scale = Vector2(1162, 20)
+mesh = SubResource("QuadMesh_ci0qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground7"]
+position = Vector2(576, 605)
+scale = Vector2(1, 0.2)
+shape = SubResource("RectangleShape2D_em1i4")
+
+[node name="TEST" type="CharacterBody2D" parent="."]
+position = Vector2(-5, 10)
+script = ExtResource("1_ahykg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TEST"]
+position = Vector2(291, 501)
+shape = SubResource("RectangleShape2D_mevj4")
+
+[node name="ShroomguyWalk0000" type="Sprite2D" parent="TEST"]
+position = Vector2(291, 491)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_tutlr")
+
+[node name="TaustParallaxKatsetusV1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1780, 275)
+scale = Vector2(1.50414, 1.50414)
+texture = ExtResource("3_tpeul")
+
+[node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
+
+[node name="KukkEnemy" parent="." instance=ExtResource("5_iwqty")]
+speed = null
+gravity = null
+health = null
+health_max = null
+knockback = null
+
+[node name="KukkEnemy2" parent="." instance=ExtResource("5_iwqty")]
+position = Vector2(2921, 331)
+speed = null
+gravity = null
+health = null
+health_max = null
+knockback = null
+
+[node name="Player" parent="." instance=ExtResource("6_tbsjw")]
+position = Vector2(609, 529)

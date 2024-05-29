@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhuijr3vn2yru"]
+[gd_scene load_steps=29 format=3 uid="uid://bhuijr3vn2yru"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy idle spritesheet.png" id="2_qadvj"]
@@ -10,10 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://byybtlpelskn6" path="res://assets/textures/shroomguy jump spritesheet.png" id="8_h834w"]
 [ext_resource type="Texture2D" uid="uid://cs2vk6qcuc3eo" path="res://assets/textures/shroomguy walk spritesheet.png" id="10_lu4ix"]
 [ext_resource type="Texture2D" uid="uid://pbalsghdcny4" path="res://assets/textures/shroomguy run spritesheet.png" id="10_s5c45"]
-[ext_resource type="Script" path="res://src/Actors/TEST.gd" id="11_2tf64"]
-[ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="12_gnrqr"]
-[ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="13_ejf4r"]
-[ext_resource type="PackedScene" uid="uid://dpc00c71oax0e" path="res://scenes/text_edit.tscn" id="14_pbcka"]
+[ext_resource type="Texture2D" uid="uid://bb800mqqsgjmi" path="res://assets/textures/shroomguy single attack spritesheet.png" id="11_k7ijr"]
+[ext_resource type="Texture2D" uid="uid://beclrcvdh8wpr" path="res://assets/textures/shroomguy double attack spritesheet.png" id="12_xvi32"]
+[ext_resource type="Texture2D" uid="uid://csdxnbvut80ox" path="res://assets/textures/shroomguy air attack spritesheet.png" id="13_5v0xt"]
 
 [sub_resource type="Animation" id="Animation_qib5r"]
 length = 0.001
@@ -64,6 +63,59 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_qaok5"]
+resource_name = "air_attack"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_5v0xt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_22lt3"]
@@ -225,6 +277,59 @@ tracks/3/keys = {
 "values": [0, 5, 6, 7, 8, 9, 3, 10, 4, 11, 1, 12, 2]
 }
 
+[sub_resource type="Animation" id="Animation_u8lty"]
+resource_name = "double_attack"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_xvi32")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
 [sub_resource type="Animation" id="Animation_vy2r7"]
 resource_name = "fall"
 length = 0.3
@@ -384,59 +489,6 @@ tracks/3/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_objuw"]
-resource_name = "walk"
-length = 1.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_lu4ix")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [16]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11, 12, 13, 14, 15]
-}
-
 [sub_resource type="Animation" id="Animation_gn8yq"]
 resource_name = "run"
 length = 1.05
@@ -491,30 +543,135 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 }
 
+[sub_resource type="Animation" id="Animation_xo83x"]
+resource_name = "single_attack"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_k7ijr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_objuw"]
+resource_name = "walk"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_lu4ix")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11, 12, 13, 14, 15]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ilspw"]
 _data = {
 "RESET": SubResource("Animation_qib5r"),
+"air_attack": SubResource("Animation_qaok5"),
 "crouch_idle": SubResource("Animation_22lt3"),
 "crouch_walk": SubResource("Animation_e7ucd"),
 "dash_roll": SubResource("Animation_g786x"),
+"double_attack": SubResource("Animation_u8lty"),
 "fall": SubResource("Animation_vy2r7"),
 "idle": SubResource("Animation_bwvlh"),
 "jump": SubResource("Animation_xa05n"),
 "run": SubResource("Animation_gn8yq"),
+"single_attack": SubResource("Animation_xo83x"),
 "walk": SubResource("Animation_objuw")
 }
 
-[sub_resource type="QuadMesh" id="QuadMesh_d0keg"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0h68k"]
+radius = 71.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xef3y"]
-size = Vector2(1162, 100)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbrke"]
+radius = 35.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67eqp"]
-size = Vector2(42, 54)
-
-[node name="World" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 z_index = 1
 position = Vector2(576, 518)
 script = ExtResource("1_0lbm8")
@@ -522,151 +679,55 @@ gravity = 30
 jump_force = 600
 dash_speed = 1000
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -50.5)
 scale = Vector2(0.0545, 0.0545)
 texture = ExtResource("2_qadvj")
 hframes = 16
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -36)
 shape = ExtResource("3_06muq")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -105)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_ilspw")
 }
 autoplay = "idle"
 
-[node name="CrouchRaycast_1" type="RayCast2D" parent="Player"]
+[node name="CrouchRaycast_1" type="RayCast2D" parent="."]
 position = Vector2(-30, -6)
 target_position = Vector2(0, -65)
 
-[node name="CrouchRaycast_2" type="RayCast2D" parent="Player"]
+[node name="CrouchRaycast_2" type="RayCast2D" parent="."]
 position = Vector2(34, -6)
 target_position = Vector2(0, -65)
 
-[node name="dash_timer" type="Timer" parent="Player"]
+[node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.3
 
-[node name="dash_again_timer" type="Timer" parent="Player"]
+[node name="dash_again_timer" type="Timer" parent="."]
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="DealDamageZone" type="Area2D" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
-modulate = Color(0.0117647, 0.227451, 0.392157, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DealDamageZone"]
+position = Vector2(-60, -57)
+shape = SubResource("CircleShape2D_0h68k")
+disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
+[node name="PlayerHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(1204, -76)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(0, -43)
+shape = SubResource("CircleShape2D_xbrke")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground2"]
-modulate = Color(0.14902, 0, 0.588235, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="Ground3" type="StaticBody2D" parent="."]
-position = Vector2(1371, -229)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground3"]
-modulate = Color(0.133333, 0, 0.533333, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="Ground4" type="StaticBody2D" parent="."]
-position = Vector2(2305, 22)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground4"]
-modulate = Color(0.223529, 0.027451, 0.568627, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="Ground5" type="StaticBody2D" parent="."]
-position = Vector2(2625, -76)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground5"]
-modulate = Color(0.247059, 0, 0.901961, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="Ground6" type="StaticBody2D" parent="."]
-position = Vector2(2670, -176)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground6"]
-modulate = Color(0.0235294, 0.211765, 0.490196, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="Ground7" type="StaticBody2D" parent="."]
-position = Vector2(1327, -391)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground7"]
-modulate = Color(0.168627, 0, 0.65098, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 20)
-mesh = SubResource("QuadMesh_d0keg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground7"]
-position = Vector2(576, 605)
-scale = Vector2(1, 0.2)
-shape = SubResource("RectangleShape2D_xef3y")
-
-[node name="TEST" type="CharacterBody2D" parent="."]
-position = Vector2(-5, 10)
-script = ExtResource("11_2tf64")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TEST"]
-position = Vector2(291, 501)
-shape = SubResource("RectangleShape2D_67eqp")
-
-[node name="ShroomguyWalk0000" type="Sprite2D" parent="TEST"]
-position = Vector2(291, 491)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("12_gnrqr")
-
-[node name="TaustParallaxKatsetusV1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1780, 275)
-scale = Vector2(1.50414, 1.50414)
-texture = ExtResource("13_ejf4r")
-
-[node name="TextEdit" parent="." instance=ExtResource("14_pbcka")]
-
-[connection signal="timeout" from="Player/dash_timer" to="Player" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Player/dash_again_timer" to="Player" method="_on_dash_again_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
