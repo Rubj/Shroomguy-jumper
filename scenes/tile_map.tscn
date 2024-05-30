@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsm5kup7m0n2a"]
+
+[ext_resource type="TileSet" uid="uid://dp40c20weip4t" path="res://resources/shroom forest tileset.tres" id="1_a4dov"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_a4dov")
+format = 2

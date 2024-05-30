@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=11 format=3 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpc00c71oax0e" path="res://scenes/text_edit.tscn" id="4_e8pk0"]
 [ext_resource type="PackedScene" uid="uid://bgnxrpi6fwa7g" path="res://scenes/kukk_enemy.tscn" id="5_iwqty"]
 [ext_resource type="PackedScene" uid="uid://bhuijr3vn2yru" path="res://scenes/Player.tscn" id="6_tbsjw"]
+[ext_resource type="PackedScene" uid="uid://bsm5kup7m0n2a" path="res://scenes/tile_map.tscn" id="7_6uh75"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
 
@@ -17,20 +18,8 @@ size = Vector2(42, 54)
 
 [node name="World" type="Node2D"]
 
-[node name="Ground" type="StaticBody2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
-modulate = Color(0.0117647, 0.227451, 0.392157, 1)
-position = Vector2(576, 605)
-scale = Vector2(1162, 100)
-mesh = SubResource("QuadMesh_ci0qu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(576, 605)
-shape = SubResource("RectangleShape2D_em1i4")
-
 [node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(1204, -76)
+position = Vector2(1244, -76)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Ground2"]
 modulate = Color(0.14902, 0, 0.588235, 1)
@@ -109,7 +98,8 @@ scale = Vector2(1, 0.2)
 shape = SubResource("RectangleShape2D_em1i4")
 
 [node name="TEST" type="CharacterBody2D" parent="."]
-position = Vector2(-5, 10)
+z_index = 2
+position = Vector2(-7, -8)
 script = ExtResource("1_ahykg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TEST"]
@@ -130,10 +120,13 @@ texture = ExtResource("3_tpeul")
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
 
 [node name="Player" parent="." instance=ExtResource("6_tbsjw")]
-position = Vector2(609, 529)
+position = Vector2(609, 517)
 
 [node name="KukkEnemy" parent="." instance=ExtResource("5_iwqty")]
 position = Vector2(1582, 140)
 
 [node name="KukkEnemy2" parent="." instance=ExtResource("5_iwqty")]
 position = Vector2(3031, 313)
+
+[node name="TileMap" parent="." instance=ExtResource("7_6uh75")]
+layer_0/tile_data = PackedInt32Array(262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, 327688, 65536, 1, 393224, 65536, 2, 393223, 65536, 2, 393222, 65536, 2, 393221, 65536, 2, 393220, 65536, 2, 393219, 65536, 2, 393218, 65536, 2, 393217, 65536, 2, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 262144, 0, 0, 327680, 0, 1, 393216, 0, 2, -131055, 0, 0, -65519, 0, 1, 17, 0, 2, -131053, 131072, 0, -65517, 131072, 1, 19, 131072, 2, -131054, 65536, 0, -65518, 65536, 1, 18, 65536, 2, 262153, 131072, 0, 327689, 131072, 1, 393225, 131072, 2)

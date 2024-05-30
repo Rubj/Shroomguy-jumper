@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy idle spritesheet.png" id="2_qadvj"]
-[ext_resource type="Shape2D" uid="uid://dy8m1n82bsbh0" path="res://resources/shroomguy_standing_cshape.tres" id="3_06muq"]
 [ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
 [ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/shroomguy dash roll spritesheet.png" id="6_y6mq6"]
@@ -13,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bb800mqqsgjmi" path="res://assets/textures/shroomguy single attack spritesheet.png" id="11_k7ijr"]
 [ext_resource type="Texture2D" uid="uid://beclrcvdh8wpr" path="res://assets/textures/shroomguy double attack spritesheet.png" id="12_xvi32"]
 [ext_resource type="Texture2D" uid="uid://csdxnbvut80ox" path="res://assets/textures/shroomguy air attack spritesheet.png" id="13_5v0xt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
+size = Vector2(66, 68)
 
 [sub_resource type="Animation" id="Animation_qib5r"]
 length = 0.001
@@ -671,7 +673,7 @@ radius = 71.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbrke"]
 radius = 35.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 position = Vector2(576, 518)
 script = ExtResource("1_0lbm8")
@@ -680,15 +682,15 @@ jump_force = 600
 dash_speed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -50.5)
-scale = Vector2(0.0545, 0.0545)
+position = Vector2(1, -51)
+scale = Vector2(0.11, 0.11)
 texture = ExtResource("2_qadvj")
 hframes = 16
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -36)
-shape = ExtResource("3_06muq")
+shape = SubResource("RectangleShape2D_ba7lh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -105)

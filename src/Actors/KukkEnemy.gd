@@ -7,7 +7,7 @@ class_name KukkEnemy
 const speed = 50
 
 var dir: Vector2
-var is_chasing: bool = false
+var is_chasing_player: bool = false
 var is_roaming: bool = true
 
 
@@ -39,13 +39,13 @@ func _process(delta):
 
 func move(delta):
 	if !dead:
-		if !is_chasing and !taking_damage:
+		if !is_chasing_player and !taking_damage:
 			velocity += dir * speed * delta
-		elif !is_chasing and take_damage:
+		elif !is_chasing_player and take_damage:
 			var knockback_dir = position.direction_to(player.position) * knockback
 			velocity.x = knockback_dir.x
 			velocity.y = (gravity - gravity) -15
-		elif is_chasing and !taking_damage:
+		elif is_chasing_player and !taking_damage:
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
@@ -60,7 +60,7 @@ func move(delta):
 
 func _on_direction_timer_timeout():
 	$DirectionTimer.wait_time = choose([1.5,2.0,2.5])
-	if !is_chasing:
+	if !is_chasing_player:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 
@@ -102,3 +102,11 @@ func handle_animation():
 func handle_death():
 	self.queue_free()
 
+func _on_kukk_sight_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		is_chasing_player = true
+		print("player nähtud")
+func _on_kukk_sight_zone_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		is_chasing_player = false
+		print("player kadunud")
