@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=13 format=3 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bhuijr3vn2yru" path="res://scenes/Player.tscn" id="6_tbsjw"]
 [ext_resource type="PackedScene" uid="uid://bsm5kup7m0n2a" path="res://scenes/tile_map.tscn" id="7_6uh75"]
 [ext_resource type="Texture2D" uid="uid://dvkib8adrf5u2" path="res://assets/textures/masks/light mask 01.png" id="8_xdwp0"]
+[ext_resource type="PackedScene" uid="uid://7nd5v4strawe" path="res://scenes/bouncyboy.tscn" id="9_t7co3"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
 
@@ -170,3 +171,6 @@ shadow_filter = 2
 shadow_filter_smooth = 1.5
 texture = ExtResource("8_xdwp0")
 texture_scale = 0.76
+
+[node name="Bouncyboy" parent="." instance=ExtResource("9_t7co3")]
+position = Vector2(891, 493)
