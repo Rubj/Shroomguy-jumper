@@ -730,6 +730,8 @@ collision_mask = 2
 position = Vector2(0, -43)
 shape = SubResource("CircleShape2D_xbrke")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerHitbox"]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]

@@ -121,6 +121,16 @@ scale = Vector2(1.50414, 1.50414)
 texture = ExtResource("3_tpeul")
 
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
+text = "ToDo
+- Run start line and finish line with timer
+and stuff. (Kõige lihtsam game loop -- again but faster)
+- Title screen and menu
+- Seeneniidistik tileset
+- Puuseened - redelid/laest kinni haaramine - npc
+- Big bounce guy or Trampoline mby
+- zoom scrolliga
+- attack animation smeers
+- "
 
 [node name="Player" parent="." instance=ExtResource("6_tbsjw")]
 position = Vector2(609, 517)
@@ -146,9 +156,9 @@ shadow_filter = 2
 shadow_filter_smooth = 1.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(865, 1407)
+position = Vector2(851, 1386)
 color = Color(0.875856, 0.423078, 0, 1)
-energy = 5.52
+energy = 5.74
 shadow_filter = 2
 shadow_filter_smooth = 1.5
 texture = ExtResource("8_xdwp0")
