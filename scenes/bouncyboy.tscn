@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7nd5v4strawe"]
+[gd_scene load_steps=11 format=3 uid="uid://7nd5v4strawe"]
 
 [ext_resource type="Script" path="res://src/Actors/bouncyboy.gd" id="1_v0w7w"]
 [ext_resource type="Texture2D" uid="uid://d1alescgstbkk" path="res://assets/textures/bouncyboy/bouncyboy idle spritesheet.png" id="1_x2dn6"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs7wm"]
 size = Vector2(651.3, 267.2)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w8i46"]
+polygon = PackedVector2Array(-78.815, 13.975, 0, 19, 76.185, 14.975, 76.185, 17.975, 0, 21, -78.815, 16.975)
 
 [sub_resource type="Animation" id="Animation_maiq4"]
 length = 0.001
@@ -56,6 +59,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_fbdwm"]
@@ -108,6 +123,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 7.845), Vector2(0, 24.685), Vector2(0, 24.685), Vector2(0, -4.645), Vector2(0.815, -19), Vector2(0.815, -19.95), Vector2(0.815, -18.93), Vector2(0.815, -7.83), Vector2(0.815, 1.525), Vector2(0.815, 0.345), Vector2(0.815, -0.975), Vector2(0.815, -0.975)]
 }
 
 [sub_resource type="Animation" id="Animation_xx7ae"]
@@ -186,6 +213,12 @@ hframes = 12
 position = Vector2(0.499997, 33)
 scale = Vector2(0.179641, 0.179641)
 shape = SubResource("RectangleShape2D_gs7wm")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_w8i46")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluder2D"]
+occluder = SubResource("OccluderPolygon2D_w8i46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

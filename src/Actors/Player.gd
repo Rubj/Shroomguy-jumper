@@ -7,16 +7,20 @@ extends CharacterBody2D
 @export var dash_speed = 500
 
 @onready var ap = $AnimationPlayer
+@onready var aps = $DealDamageZone/AnimationPlayerSmear
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
 @onready var crouch_raycast1 = $CrouchRaycast_1
 @onready var crouch_raycast2 = $CrouchRaycast_2
 @onready var deal_damage_zone = $DealDamageZone
+@onready var smear_sprite_single = $DealDamageZone/Sprite2DSingle
+@onready var smear_sprite_air = $DealDamageZone/Sprite2DAir
 
 var dashing = false
 var can_dash = true
 
 var attack_type: String
+var smear_type: String
 var attacking: bool
 
 var running = false
@@ -30,6 +34,8 @@ var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres"
 func _ready():
 	attacking = false
 	Global.playerBody = self
+	smear_sprite_single.visible = false
+	smear_sprite_air.visible = false
 
 func _physics_process(delta):
 	Global.playerDamageZone = deal_damage_zone
@@ -83,12 +89,14 @@ func _physics_process(delta):
 			attacking = true
 			if Input.is_action_just_pressed("attack_single") and is_on_floor():
 				attack_type = "single"
+				smear_type = "single_01"
 			elif Input.is_action_just_pressed("attack_double") and is_on_floor():
 				attack_type = "double"
 			elif Input.is_action_just_pressed("attack_single") or Input.is_action_just_pressed("attack_double") and !is_on_floor():
 				attack_type = "air"
+				smear_type = "air_01"
 			set_damage(attack_type)
-			handle_attack_animation(attack_type)
+			handle_attack_animation(attack_type, smear_type)
 
 	move_and_slide()
 	update_animations(horizontal_direction)
@@ -141,10 +149,14 @@ func _on_dash_timer_timeout() -> void:
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
 
-func handle_attack_animation(attack_type):
+func handle_attack_animation(attack_type, smear_type):
 	if attacking:
 		var animation = str(attack_type, "_attack")
+		var animation_smear = str(smear_type, "_attack")
 		ap.play(animation)
+		smear_sprite_single.visible = true
+		smear_sprite_air.visible = true
+		aps.play(animation_smear)
 		print(animation)
 		toggle_damage_collisions(attack_type)
 
