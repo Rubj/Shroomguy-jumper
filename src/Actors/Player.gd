@@ -13,14 +13,12 @@ extends CharacterBody2D
 @onready var crouch_raycast1 = $CrouchRaycast_1
 @onready var crouch_raycast2 = $CrouchRaycast_2
 @onready var deal_damage_zone = $DealDamageZone
-@onready var smear_sprite_single = $DealDamageZone/Sprite2DSingle
-@onready var smear_sprite_air = $DealDamageZone/Sprite2DAir
+@onready var smears_sprite = $DealDamageZone/Sprite2D
 
 var dashing = false
 var can_dash = true
 
 var attack_type: String
-var smear_type: String
 var attacking: bool
 
 var running = false
@@ -34,8 +32,7 @@ var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres"
 func _ready():
 	attacking = false
 	Global.playerBody = self
-	smear_sprite_single.visible = false
-	smear_sprite_air.visible = false
+	smears_sprite.visible = false
 
 func _physics_process(delta):
 	Global.playerDamageZone = deal_damage_zone
@@ -89,14 +86,12 @@ func _physics_process(delta):
 			attacking = true
 			if Input.is_action_just_pressed("attack_single") and is_on_floor():
 				attack_type = "single"
-				smear_type = "single_01"
 			elif Input.is_action_just_pressed("attack_double") and is_on_floor():
 				attack_type = "double"
 			elif Input.is_action_just_pressed("attack_single") or Input.is_action_just_pressed("attack_double") and !is_on_floor():
 				attack_type = "air"
-				smear_type = "air_01"
 			set_damage(attack_type)
-			handle_attack_animation(attack_type, smear_type)
+			handle_attack_animation(attack_type)
 
 	move_and_slide()
 	update_animations(horizontal_direction)
@@ -149,26 +144,40 @@ func _on_dash_timer_timeout() -> void:
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
 
-func handle_attack_animation(attack_type, smear_type):
+func handle_attack_animation(attack_type):
 	if attacking:
 		var animation = str(attack_type, "_attack")
-		var animation_smear = str(smear_type, "_attack")
 		ap.play(animation)
-		smear_sprite_single.visible = true
-		smear_sprite_air.visible = true
-		aps.play(animation_smear)
 		print(animation)
 		toggle_damage_collisions(attack_type)
+		if attack_type == "air":
+			aps.play("air_01_attack")
+		if attack_type == "single":
+			aps.play("single_01_attack")
+		if attack_type == "double":
+			aps.play("double_01_attack")
 
 func toggle_damage_collisions(attack_type):
 	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 	var wait_time: float
 	if attack_type == "air":
 		wait_time = 0.4
+		damage_zone_collision.position.x = 0
+		damage_zone_collision.position.y = -43
+		damage_zone_collision.scale.x = 2.0
+		damage_zone_collision.scale.y = 2.0
 	elif attack_type == "single":
 		wait_time = 0.5
+		damage_zone_collision.position.x = -60
+		damage_zone_collision.position.y = -57
+		damage_zone_collision.scale.x = 1.2
+		damage_zone_collision.scale.y = 1.2
 	elif attack_type == "double":
 		wait_time = 0.8
+		damage_zone_collision.position.x = -60
+		damage_zone_collision.position.y = -57
+		damage_zone_collision.scale.x = 1.0
+		damage_zone_collision.scale.y = 1.0
 	damage_zone_collision.disabled = false
 	await get_tree().create_timer(wait_time).timeout
 	damage_zone_collision.disabled = true

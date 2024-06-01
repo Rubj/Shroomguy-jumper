@@ -217,9 +217,6 @@ shape = SubResource("RectangleShape2D_gs7wm")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_w8i46")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluder2D"]
-occluder = SubResource("OccluderPolygon2D_w8i46")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_k8jso")
