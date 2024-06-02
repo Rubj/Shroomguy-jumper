@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bhuijr3vn2yru"]
+[gd_scene load_steps=40 format=3 uid="uid://bhuijr3vn2yru"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy idle spritesheet.png" id="2_qadvj"]
@@ -19,6 +19,25 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
 size = Vector2(66, 68)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7lgv0"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(700, 100, 1)
+direction = Vector3(-0.25, 1, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.5
+turbulence_enabled = true
+turbulence_noise_strength = 15.51
+turbulence_noise_speed_random = 1.01
+turbulence_influence_min = 0.325
+turbulence_influence_max = 0.403
+turbulence_initial_displacement_min = 89.0
+turbulence_initial_displacement_max = 100.0
 
 [sub_resource type="Animation" id="Animation_qib5r"]
 length = 0.001
@@ -1211,6 +1230,13 @@ shape = SubResource("RectangleShape2D_ba7lh")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -105)
 position_smoothing_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Camera2D"]
+modulate = Color(1, 1, 0.109804, 0.505882)
+position = Vector2(0, 50)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_7lgv0")
+lifetime = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")

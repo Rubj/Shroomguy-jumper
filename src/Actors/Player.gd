@@ -29,6 +29,7 @@ var stuck_under_object = false
 var standing_cshape = preload("res://resources/shroomguy_standing_cshape.tres")
 var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres")
 
+
 func _ready():
 	attacking = false
 	Global.playerBody = self
@@ -195,3 +196,4 @@ func set_damage(attack_type):
 	elif attack_type == "air":
 		current_damage_to_deal = 20
 	Global.playerDamageAmount = current_damage_to_deal
+
