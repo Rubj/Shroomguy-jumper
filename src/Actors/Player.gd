@@ -224,7 +224,6 @@ func toggle_damage_collisions(attack_type):
 	await get_tree().create_timer(wait_time).timeout
 	damage_zone_collision.disabled = true
 	
-
 func _on_animation_player_animation_finished(anim_name: StringName):
 	attacking = false
 

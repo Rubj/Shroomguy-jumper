@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdious5drjboj"
-path="res://.godot/imported/shroomguy crouch walk spritesheet.png-0d982042835bddc71ad40fb39618ac56.ctex"
+path="res://.godot/imported/shroomguy crouch walk spritesheet.png-f43e04b579bba04f74df1f0d71a3f8e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy crouch walk spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy crouch walk spritesheet.png-0d982042835bddc71ad40fb39618ac56.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy crouch walk spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy crouch walk spritesheet.png-f43e04b579bba04f74df1f0d71a3f8e8.ctex"]
 
 [params]
 

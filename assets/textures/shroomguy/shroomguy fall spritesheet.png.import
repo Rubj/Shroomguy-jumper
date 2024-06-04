@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bodcdctps5jj0"
-path="res://.godot/imported/shroomguy dash roll spritesheet.png-2d6c7ab8070b5a9b025e637e80c73b5c.ctex"
+uid="uid://b6klf8h1kpqxx"
+path="res://.godot/imported/shroomguy fall spritesheet.png-9e38376566c80d6b212fe70a9a7417cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy dash roll spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy dash roll spritesheet.png-2d6c7ab8070b5a9b025e637e80c73b5c.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy fall spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy fall spritesheet.png-9e38376566c80d6b212fe70a9a7417cc.ctex"]
 
 [params]
 

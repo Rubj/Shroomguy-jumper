@@ -10,7 +10,6 @@ var dir: Vector2
 var is_chasing_player: bool = false
 var is_roaming: bool = true
 
-
 const gravity = 800
 var knockback = -100
 var health = 80

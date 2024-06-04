@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6klf8h1kpqxx"
-path="res://.godot/imported/shroomguy fall spritesheet.png-30ce57f2f2fe8d58505a9be25f67a17d.ctex"
+uid="uid://cs2vk6qcuc3eo"
+path="res://.godot/imported/shroomguy walk spritesheet.png-8b756394f021b96cea33bdb063dc8229.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy fall spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy fall spritesheet.png-30ce57f2f2fe8d58505a9be25f67a17d.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy walk spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy walk spritesheet.png-8b756394f021b96cea33bdb063dc8229.ctex"]
 
 [params]
 

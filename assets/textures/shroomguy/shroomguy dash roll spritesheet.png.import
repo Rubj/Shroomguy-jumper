@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csdxnbvut80ox"
-path="res://.godot/imported/shroomguy air attack spritesheet.png-126c465c0e75a9a08c95eeb990f08691.ctex"
+uid="uid://bodcdctps5jj0"
+path="res://.godot/imported/shroomguy dash roll spritesheet.png-5727c9d3645e0ceca38920744b392344.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy air attack spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy air attack spritesheet.png-126c465c0e75a9a08c95eeb990f08691.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy dash roll spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy dash roll spritesheet.png-5727c9d3645e0ceca38920744b392344.ctex"]
 
 [params]
 

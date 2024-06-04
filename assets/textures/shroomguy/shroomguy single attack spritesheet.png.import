@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb800mqqsgjmi"
-path="res://.godot/imported/shroomguy single attack spritesheet.png-4437d73d1eb86ac7b310234c93e5be9f.ctex"
+path="res://.godot/imported/shroomguy single attack spritesheet.png-4d51044a45810c30990c482f1142dccb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy single attack spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy single attack spritesheet.png-4437d73d1eb86ac7b310234c93e5be9f.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy single attack spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy single attack spritesheet.png-4d51044a45810c30990c482f1142dccb.ctex"]
 
 [params]
 

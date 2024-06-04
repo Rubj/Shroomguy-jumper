@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byybtlpelskn6"
-path="res://.godot/imported/shroomguy jump spritesheet.png-964874f82b86d314310fab44c19516ef.ctex"
+uid="uid://beclrcvdh8wpr"
+path="res://.godot/imported/shroomguy double attack spritesheet.png-5efe451a131b0e919e5276ea4203018b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy jump spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy jump spritesheet.png-964874f82b86d314310fab44c19516ef.ctex"]
+source_file="res://assets/textures/shroomguy/shroomguy double attack spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy double attack spritesheet.png-5efe451a131b0e919e5276ea4203018b.ctex"]
 
 [params]
 
