@@ -1215,6 +1215,7 @@ script = ExtResource("1_0lbm8")
 gravity = 30
 jump_force = 600
 dash_speed = 1000
+run_friction = 0.01
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -51)

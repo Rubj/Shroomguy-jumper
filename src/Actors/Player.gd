@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
-@export var speed = 100
-@export var run_speed = 300
+@export var speed_max = 100
+@export var acceleration = 0.5
+@export var run_speed_max = 300
+@export var run_acceleration = 1
 @export var gravity = 40
 @export var jump_force = 150
+@export var cayote_time: int = 15
+@export var jump_buffer_time: int = 15
 @export var dash_speed = 500
+@export_range(0.0, 1.0) var friction = 0.1
+@export_range(0.0, 1.0) var run_friction = 0.03
 
 @onready var ap = $AnimationPlayer
 @onready var aps = $DealDamageZone/AnimationPlayerSmear
@@ -26,6 +32,11 @@ var running = false
 var is_crouching = false
 var stuck_under_object = false
 
+var cayote_counter: int = 0
+var jump_counter: int = 0
+var jump_buffer_counter: int = 0
+
+
 var standing_cshape = preload("res://resources/shroomguy_standing_cshape.tres")
 var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres")
 
@@ -38,24 +49,53 @@ func _ready():
 func _physics_process(delta):
 	Global.playerDamageZone = deal_damage_zone
 	
+	if is_on_floor():
+		cayote_counter = cayote_time
+		jump_counter = 0
+	
 	if !is_on_floor():
+		if cayote_counter > 0:
+			cayote_counter -= 1
+		
+		if jump_buffer_counter > 0 and jump_counter < 0: # <-- set to 1 to double jump
+			cayote_counter = 1
+			jump_counter += 1
+		
 		velocity.y += gravity
 		if velocity.y > 1500:
 			velocity.y = 1500
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding():
+	if Input.is_action_just_pressed("jump") and !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding():
+		jump_buffer_counter = jump_buffer_time
+	
+	if jump_buffer_counter > 0:
+		jump_buffer_counter -= 1
+	
+	if jump_buffer_counter > 0 and cayote_counter > 0:
 		velocity.y = -jump_force
+		jump_buffer_counter = 0
+		cayote_counter = 0
+
 	
 	var horizontal_direction = Input.get_axis("move_left", "move_right")
-	velocity.x = speed * horizontal_direction
 	if horizontal_direction != 0:
+		velocity.x = lerp(velocity.x, speed_max * horizontal_direction, acceleration)
+		velocity.x = clamp(velocity.x, -speed_max, speed_max)
 		sprite.flip_h = (horizontal_direction == 1)
 		deal_damage_zone.scale.x = -horizontal_direction
+	else:
+		velocity.x = lerp(velocity.x, 0.0, friction)
 		
 	if Input.is_action_pressed("hold run") and velocity.x != 0:
 		running = true
-		velocity.x = run_speed * horizontal_direction
-	if !Input.is_action_pressed("hold run"):
+		if running and horizontal_direction != 0:
+			velocity.x = lerp(velocity.x, run_speed_max * horizontal_direction, run_acceleration)
+		else:
+			velocity.x = lerp(velocity.x, 0.0, run_friction)
+			
+		velocity.x = clamp(velocity.x, -run_speed_max, run_speed_max)
+		
+	if ! Input.is_action_pressed("hold run"):
 		running = false
 	
 	if Input.is_action_just_pressed("crouch"):
@@ -120,6 +160,7 @@ func update_animations(horizontal_direction):
 			ap.play("jump")
 		elif velocity.y > 0 and !attacking:
 			ap.play("fall")
+
 
 func above_head_is_empty() -> bool:
 	var result = !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding()
