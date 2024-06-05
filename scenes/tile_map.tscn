@@ -1,7 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsm5kup7m0n2a"]
+[gd_scene load_steps=6 format=3 uid="uid://bsm5kup7m0n2a"]
 
 [ext_resource type="TileSet" uid="uid://dp40c20weip4t" path="res://resources/shroom forest tileset.tres" id="1_a4dov"]
+[ext_resource type="Shader" path="res://shaders/tilemap_distortion.gdshader" id="1_pxa53"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4vngc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wbkky"]
+noise = SubResource("FastNoiseLite_4vngc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0h4ap"]
+shader = ExtResource("1_pxa53")
+shader_parameter/render_noise = false
+shader_parameter/move_top = true
+shader_parameter/distortion_force = Vector2(6, 1)
+shader_parameter/time_scale = 0.02
+shader_parameter/noise_scale = 0.002
+shader_parameter/global_transform = null
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_wbkky")
 
 [node name="TileMap" type="TileMap"]
+material = SubResource("ShaderMaterial_0h4ap")
 tile_set = ExtResource("1_a4dov")
 format = 2
