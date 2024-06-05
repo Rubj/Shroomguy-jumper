@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready() -> void:
+	get_viewport().size = DisplayServer.screen_get_size()
 	$MarginContainer/VBoxContainer/Play/Sprite2D.self_modulate = Color(1.0, 1.0, 1.0, 0.8)
 
 func _on_play_mouse_entered() -> void:
