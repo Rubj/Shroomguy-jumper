@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://bhuijr3vn2yru"]
+[gd_scene load_steps=45 format=3 uid="uid://bhuijr3vn2yru"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy/shroomguy idle spritesheet.png" id="2_qadvj"]
 [ext_resource type="Shader" path="res://shaders/blur_vignette.gdshader" id="3_4ocfy"]
+[ext_resource type="Script" path="res://scenes/Camera.gd" id="3_oid8h"]
 [ext_resource type="Shader" path="res://shaders/color_vignette.gdshader" id="4_mksvo"]
 [ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/shroomguy/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/shroomguy/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
@@ -1230,7 +1231,6 @@ script = ExtResource("1_0lbm8")
 gravity = 30
 jump_force = 600
 dash_speed = 1000
-run_friction = 0.01
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -51)
@@ -1245,8 +1245,10 @@ shape = SubResource("RectangleShape2D_ba7lh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -105)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+script = ExtResource("3_oid8h")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 material = SubResource("ShaderMaterial_i88o1")
