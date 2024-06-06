@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var speed_max = 100
-@export var acceleration = 0.5
-@export var run_speed_max = 300
-@export var run_acceleration = 1
-@export var gravity = 40
-@export var jump_force = 150
+@export var speed_max = 300
+@export var acceleration = 1
+@export var run_speed_max = 500
+@export var run_acceleration = 3
+@export var gravity = 17
+@export var jump_force = 170
 @export var cayote_time: int = 15
-@export var jump_buffer_time: int = 15
+@export var jump_buffer_time: int = 10
 @export var dash_speed = 500
 @export_range(0.0, 1.0) var friction = 0.1
-@export_range(0.0, 1.0) var run_friction = 0.03
+@export_range(0.0, 1.0) var run_friction = 0.01
 
 @onready var ap = $AnimationPlayer
 @onready var aps = $DealDamageZone/AnimationPlayerSmear
@@ -57,7 +57,7 @@ func _physics_process(delta):
 		if cayote_counter > 0:
 			cayote_counter -= 1
 		
-		if jump_buffer_counter > 0 and jump_counter < 0: # <-- set to 1 to double jump
+		if jump_buffer_counter > 0 and jump_counter < 3: # <-- set to 1 to double jump
 			cayote_counter = 1
 			jump_counter += 1
 		
