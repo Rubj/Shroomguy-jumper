@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed_max = 300
+@export var speed_max = 125
 @export var acceleration = 1
-@export var run_speed_max = 500
+@export var run_speed_max = 350
 @export var run_acceleration = 3
 @export var gravity = 17
 @export var jump_force = 170
@@ -57,13 +57,13 @@ func _physics_process(delta):
 		if cayote_counter > 0:
 			cayote_counter -= 1
 		
-		if jump_buffer_counter > 0 and jump_counter < 3: # <-- set to 1 to double jump
+		if jump_buffer_counter > 0 and jump_counter < 0: # <-- set to 1 to double jump
 			cayote_counter = 1
 			jump_counter += 1
 		
 		velocity.y += gravity
-		if velocity.y > 1500:
-			velocity.y = 1500
+		if velocity.y > 1200:
+			velocity.y = 1200
 	
 	if Input.is_action_just_pressed("jump") and !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding():
 		jump_buffer_counter = jump_buffer_time

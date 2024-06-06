@@ -1,11 +1,14 @@
-[gd_scene load_steps=44 format=3 uid="uid://bhuijr3vn2yru"]
+[gd_scene load_steps=50 format=3 uid="uid://bhuijr3vn2yru"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
+[ext_resource type="PackedScene" uid="uid://cxhk5wgy4l4ta" path="res://scenes/pause_menu.tscn" id="2_0gr5i"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy/shroomguy idle spritesheet.png" id="2_qadvj"]
 [ext_resource type="Shader" path="res://shaders/blur_vignette.gdshader" id="3_4ocfy"]
+[ext_resource type="Script" path="res://src/Actors/HUD.gd" id="4_kind7"]
 [ext_resource type="Shader" path="res://shaders/color_vignette.gdshader" id="4_mksvo"]
 [ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/shroomguy/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/shroomguy/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
+[ext_resource type="Texture2D" uid="uid://cr48o7v3ovsw4" path="res://assets/textures/menu/cogwheel spinn spritesheet.png" id="5_gygjm"]
 [ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/shroomguy/shroomguy dash roll spritesheet.png" id="6_y6mq6"]
 [ext_resource type="Texture2D" uid="uid://b6klf8h1kpqxx" path="res://assets/textures/shroomguy/shroomguy fall spritesheet.png" id="7_g3f5u"]
 [ext_resource type="Texture2D" uid="uid://byybtlpelskn6" path="res://assets/textures/shroomguy/shroomguy jump spritesheet.png" id="8_h834w"]
@@ -21,6 +24,115 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
 size = Vector2(66, 68)
+
+[sub_resource type="Animation" id="Animation_4jnlr"]
+resource_name = "spinn"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gygjm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_3mavd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gygjm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73k32"]
+_data = {
+"RESET": SubResource("Animation_3mavd"),
+"spinn": SubResource("Animation_4jnlr")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i88o1"]
 shader = ExtResource("3_4ocfy")
@@ -1230,7 +1342,6 @@ script = ExtResource("1_0lbm8")
 gravity = 30
 jump_force = 600
 dash_speed = 1000
-run_friction = 0.01
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -51)
@@ -1243,8 +1354,45 @@ frame = 1
 position = Vector2(2, -36)
 shape = SubResource("RectangleShape2D_ba7lh")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_kind7")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("2_0gr5i")]
+visible = false
+anchors_preset = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+offset_right = 87.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HUD/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="CogWheel" type="Sprite2D" parent="HUD/MarginContainer/VBoxContainer/Button"]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = 10
+position = Vector2(43, 41)
+scale = Vector2(0.333, 0.333)
+texture = ExtResource("5_gygjm")
+hframes = 12
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="HUD/MarginContainer/VBoxContainer/Button"]
+root_node = NodePath("../../../../../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_73k32")
+}
+
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
 position = Vector2(2, -105)
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
@@ -1254,7 +1402,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1218.0
-offset_top = -733.0
+offset_top = -837.0
 offset_right = 1214.0
 offset_bottom = 739.0
 grow_horizontal = 2
@@ -1266,9 +1414,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1282.0
-offset_top = -797.0
+offset_top = -861.0
 offset_right = 1278.0
-offset_bottom = 803.0
+offset_bottom = 811.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1329,6 +1477,7 @@ collision_mask = 2
 position = Vector2(0, -43)
 shape = SubResource("CircleShape2D_xbrke")
 
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/Button" to="HUD" method="_on_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]

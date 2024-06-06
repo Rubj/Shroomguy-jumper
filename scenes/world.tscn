@@ -36,6 +36,7 @@ shader_parameter/seed = 5.0
 size = Vector2(42, 54)
 
 [node name="World" type="Node2D"]
+position = Vector2(-3, 13)
 
 [node name="Ground2" type="StaticBody2D" parent="."]
 position = Vector2(1244, -76)
