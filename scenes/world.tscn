@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=15 format=3 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
+[ext_resource type="Shader" path="res://shaders/godrays.gdshader" id="1_v35ph"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
 [ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="3_tpeul"]
 [ext_resource type="PackedScene" uid="uid://dpc00c71oax0e" path="res://scenes/text_edit.tscn" id="4_e8pk0"]
@@ -14,6 +15,22 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em1i4"]
 size = Vector2(1162, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyg8v"]
+shader = ExtResource("1_v35ph")
+shader_parameter/angle = -0.05
+shader_parameter/position = 0.04
+shader_parameter/spread = 0.625
+shader_parameter/cutoff = -0.108
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.614
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(0.00423291, 0.225755, 0.90753, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mevj4"]
 size = Vector2(42, 54)
@@ -99,6 +116,20 @@ position = Vector2(576, 605)
 scale = Vector2(1, 0.2)
 shape = SubResource("RectangleShape2D_em1i4")
 
+[node name="God Rays" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_iyg8v")
+offset_left = 2625.0
+offset_top = -1405.0
+offset_right = 3422.0
+offset_bottom = 687.0
+
+[node name="God Rays2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_iyg8v")
+offset_left = 555.0
+offset_top = -1405.0
+offset_right = 1352.0
+offset_bottom = 687.0
+
 [node name="TEST" type="CharacterBody2D" parent="."]
 z_index = 2
 position = Vector2(-7, -8)
@@ -119,6 +150,7 @@ z_index = -1
 position = Vector2(1780, 275)
 scale = Vector2(1.50414, 1.50414)
 texture = ExtResource("3_tpeul")
+metadata/_edit_lock_ = true
 
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
 text = "ToDo

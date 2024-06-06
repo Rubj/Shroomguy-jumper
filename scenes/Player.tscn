@@ -25,15 +25,15 @@ size = Vector2(66, 68)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i88o1"]
 shader = ExtResource("3_4ocfy")
 shader_parameter/blur_radius = 0.609
-shader_parameter/blur_amount = 0.87
+shader_parameter/blur_amount = 0.948
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.702
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bml88"]
 shader = ExtResource("4_mksvo")
-shader_parameter/vignette_intensity = 0.965
+shader_parameter/vignette_intensity = 1.0
 shader_parameter/vignette_opacity = 1.0
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+shader_parameter/vignette_rgb = Color(0.00077082, 0.0886012, 0.152086, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7lgv0"]
 particle_flag_disable_z = true
@@ -1262,12 +1262,14 @@ grow_vertical = 2
 
 [node name="ColorRect2" type="ColorRect" parent="Camera2D"]
 material = SubResource("ShaderMaterial_bml88")
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1274.0
-offset_top = -789.0
+offset_left = -1282.0
+offset_top = -797.0
 offset_right = 1278.0
 offset_bottom = 803.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Camera2D"]
