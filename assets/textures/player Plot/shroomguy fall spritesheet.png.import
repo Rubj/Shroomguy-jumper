@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb800mqqsgjmi"
-path="res://.godot/imported/shroomguy single attack spritesheet.png-4d51044a45810c30990c482f1142dccb.ctex"
+uid="uid://b6klf8h1kpqxx"
+path="res://.godot/imported/shroomguy fall spritesheet.png-77242ecc7937931a6206915bf9722332.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy/shroomguy single attack spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy single attack spritesheet.png-4d51044a45810c30990c482f1142dccb.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy fall spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy fall spritesheet.png-77242ecc7937931a6206915bf9722332.ctex"]
 
 [params]
 

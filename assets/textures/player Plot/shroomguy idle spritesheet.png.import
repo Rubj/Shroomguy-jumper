@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fkmcasopwjol"
-path="res://.godot/imported/shroomguy idle spritesheet.png-b2d3e2bc5365eaf8c0f0e07065da1a35.ctex"
+path="res://.godot/imported/shroomguy idle spritesheet.png-9ff2cd2254b0af8ed602674b27bb057c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy/shroomguy idle spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy idle spritesheet.png-b2d3e2bc5365eaf8c0f0e07065da1a35.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy idle spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy idle spritesheet.png-9ff2cd2254b0af8ed602674b27bb057c.ctex"]
 
 [params]
 

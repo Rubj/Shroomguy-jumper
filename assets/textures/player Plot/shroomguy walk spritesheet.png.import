@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beclrcvdh8wpr"
-path="res://.godot/imported/shroomguy double attack spritesheet.png-5efe451a131b0e919e5276ea4203018b.ctex"
+uid="uid://cs2vk6qcuc3eo"
+path="res://.godot/imported/shroomguy walk spritesheet.png-5667b8efd1e02e34a5ac2e4aac87ba50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy/shroomguy double attack spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy double attack spritesheet.png-5efe451a131b0e919e5276ea4203018b.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy walk spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy walk spritesheet.png-5667b8efd1e02e34a5ac2e4aac87ba50.ctex"]
 
 [params]
 

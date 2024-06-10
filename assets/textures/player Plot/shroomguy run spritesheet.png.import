@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb3cwnxfqrfnx"
-path="res://.godot/imported/shroomguy jumper title screen play ALUS.png-75ad0f433079a82ead45c3e609583b49.ctex"
+uid="uid://pbalsghdcny4"
+path="res://.godot/imported/shroomguy run spritesheet.png-7d9c026aebe86a266c044ee1450ecade.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/title screen/shroomguy jumper title screen play ALUS.png"
-dest_files=["res://.godot/imported/shroomguy jumper title screen play ALUS.png-75ad0f433079a82ead45c3e609583b49.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy run spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy run spritesheet.png-7d9c026aebe86a266c044ee1450ecade.ctex"]
 
 [params]
 

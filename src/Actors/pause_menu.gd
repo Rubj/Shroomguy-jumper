@@ -10,7 +10,7 @@ func _on_settings_pressed() -> void:
 
 func _on_title_screen_pressed() -> void:
 	main.pausedMenu()
-	get_tree().change_scene_to_file("res://scenes/play_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

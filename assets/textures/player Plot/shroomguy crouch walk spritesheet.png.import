@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cttxcnj5cx2vs"
-path="res://.godot/imported/titlescreen idle spritesheet.png-0f846574b95bd373a244595ffebbac8c.ctex"
+uid="uid://bdious5drjboj"
+path="res://.godot/imported/shroomguy crouch walk spritesheet.png-7916711180aba14799d5798504b0f030.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/title screen/titlescreen idle spritesheet.png"
-dest_files=["res://.godot/imported/titlescreen idle spritesheet.png-0f846574b95bd373a244595ffebbac8c.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy crouch walk spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy crouch walk spritesheet.png-7916711180aba14799d5798504b0f030.ctex"]
 
 [params]
 

@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="PackedScene" uid="uid://cxhk5wgy4l4ta" path="res://scenes/pause_menu.tscn" id="2_0gr5i"]
-[ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/shroomguy/shroomguy idle spritesheet.png" id="2_qadvj"]
+[ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/player Plot/shroomguy idle spritesheet.png" id="2_qadvj"]
 [ext_resource type="Shader" path="res://shaders/blur_vignette.gdshader" id="3_4ocfy"]
 [ext_resource type="Script" path="res://src/Actors/HUD.gd" id="4_kind7"]
 [ext_resource type="Shader" path="res://shaders/color_vignette.gdshader" id="4_mksvo"]
-[ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/shroomguy/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
-[ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/shroomguy/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
+[ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/player Plot/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
+[ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/player Plot/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
 [ext_resource type="Texture2D" uid="uid://cr48o7v3ovsw4" path="res://assets/textures/menu/cogwheel spinn spritesheet.png" id="5_gygjm"]
-[ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/shroomguy/shroomguy dash roll spritesheet.png" id="6_y6mq6"]
-[ext_resource type="Texture2D" uid="uid://b6klf8h1kpqxx" path="res://assets/textures/shroomguy/shroomguy fall spritesheet.png" id="7_g3f5u"]
-[ext_resource type="Texture2D" uid="uid://byybtlpelskn6" path="res://assets/textures/shroomguy/shroomguy jump spritesheet.png" id="8_h834w"]
-[ext_resource type="Texture2D" uid="uid://cs2vk6qcuc3eo" path="res://assets/textures/shroomguy/shroomguy walk spritesheet.png" id="10_lu4ix"]
-[ext_resource type="Texture2D" uid="uid://pbalsghdcny4" path="res://assets/textures/shroomguy/shroomguy run spritesheet.png" id="10_s5c45"]
-[ext_resource type="Texture2D" uid="uid://bb800mqqsgjmi" path="res://assets/textures/shroomguy/shroomguy single attack spritesheet.png" id="11_k7ijr"]
-[ext_resource type="Texture2D" uid="uid://beclrcvdh8wpr" path="res://assets/textures/shroomguy/shroomguy double attack spritesheet.png" id="12_xvi32"]
-[ext_resource type="Texture2D" uid="uid://csdxnbvut80ox" path="res://assets/textures/shroomguy/shroomguy air attack spritesheet.png" id="13_5v0xt"]
+[ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/player Plot/shroomguy dash roll spritesheet.png" id="6_y6mq6"]
+[ext_resource type="Texture2D" uid="uid://b6klf8h1kpqxx" path="res://assets/textures/player Plot/shroomguy fall spritesheet.png" id="7_g3f5u"]
+[ext_resource type="Texture2D" uid="uid://byybtlpelskn6" path="res://assets/textures/player Plot/shroomguy jump spritesheet.png" id="8_h834w"]
+[ext_resource type="Texture2D" uid="uid://cs2vk6qcuc3eo" path="res://assets/textures/player Plot/shroomguy walk spritesheet.png" id="10_lu4ix"]
+[ext_resource type="Texture2D" uid="uid://pbalsghdcny4" path="res://assets/textures/player Plot/shroomguy run spritesheet.png" id="10_s5c45"]
+[ext_resource type="Texture2D" uid="uid://bb800mqqsgjmi" path="res://assets/textures/player Plot/shroomguy single attack spritesheet.png" id="11_k7ijr"]
+[ext_resource type="Texture2D" uid="uid://beclrcvdh8wpr" path="res://assets/textures/player Plot/shroomguy double attack spritesheet.png" id="12_xvi32"]
+[ext_resource type="Texture2D" uid="uid://csdxnbvut80ox" path="res://assets/textures/player Plot/shroomguy air attack spritesheet.png" id="13_5v0xt"]
 [ext_resource type="Texture2D" uid="uid://d03pdick43qpa" path="res://assets/textures/smears/smeer single attack 01 spritesheet.png" id="13_bci3y"]
 [ext_resource type="Texture2D" uid="uid://demrlyu5yslcr" path="res://assets/textures/smears/smeer air attack 01 spritesheet.png" id="14_2s80t"]
 [ext_resource type="Texture2D" uid="uid://f5chv22uxgyt" path="res://assets/textures/smears/smeer single attack 02 spritesheet.png" id="14_hpbr4"]
@@ -24,6 +24,57 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
 size = Vector2(66, 68)
+
+[sub_resource type="Animation" id="Animation_3mavd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gygjm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_4jnlr"]
 resource_name = "spinn"
@@ -75,57 +126,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-
-[sub_resource type="Animation" id="Animation_3mavd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_gygjm")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73k32"]
@@ -1335,7 +1335,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbrke"]
 radius = 35.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["bouncable"]]
 z_index = 1
 position = Vector2(576, 518)
 script = ExtResource("1_0lbm8")

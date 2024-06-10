@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byybtlpelskn6"
-path="res://.godot/imported/shroomguy jump spritesheet.png-6f738b8c73bbc6d1a0e081ade1112537.ctex"
+uid="uid://bodcdctps5jj0"
+path="res://.godot/imported/shroomguy dash roll spritesheet.png-ee78c87260d3761b6d6cf4d3bb5e355b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shroomguy/shroomguy jump spritesheet.png"
-dest_files=["res://.godot/imported/shroomguy jump spritesheet.png-6f738b8c73bbc6d1a0e081ade1112537.ctex"]
+source_file="res://assets/textures/player Plot/shroomguy dash roll spritesheet.png"
+dest_files=["res://.godot/imported/shroomguy dash roll spritesheet.png-ee78c87260d3761b6d6cf4d3bb5e355b.ctex"]
 
 [params]
 

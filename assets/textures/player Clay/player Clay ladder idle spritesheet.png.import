@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do8j8bgohbjf0"
-path="res://.godot/imported/titlescreen on click spritesheet.png-e11670e7d15efb84e5853de178a78488.ctex"
+uid="uid://dfuoa0ewqv56x"
+path="res://.godot/imported/player Clay ladder idle spritesheet.png-eb037cd1cd02e6099edc2be3f960b837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/title screen/titlescreen on click spritesheet.png"
-dest_files=["res://.godot/imported/titlescreen on click spritesheet.png-e11670e7d15efb84e5853de178a78488.ctex"]
+source_file="res://assets/textures/player Clay/player Clay ladder idle spritesheet.png"
+dest_files=["res://.godot/imported/player Clay ladder idle spritesheet.png-eb037cd1cd02e6099edc2be3f960b837.ctex"]
 
 [params]
 

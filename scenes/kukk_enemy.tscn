@@ -226,7 +226,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftxpt"]
 radius = 72.0
 
-[node name="KukkEnemy" type="CharacterBody2D"]
+[node name="KukkEnemy" type="CharacterBody2D" groups=["bouncable"]]
 z_index = 2
 script = ExtResource("1_en48g")
 
