@@ -1,0 +1,225 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds21df7wwvr4l"]
+
+[ext_resource type="Script" path="res://src/Actors/HUD.gd" id="1_4150d"]
+[ext_resource type="PackedScene" uid="uid://h6whhnd58eu" path="res://scenes/pause_menu.tscn" id="2_dkj8h"]
+[ext_resource type="Texture2D" uid="uid://cr48o7v3ovsw4" path="res://assets/textures/menu/cogwheel spinn spritesheet.png" id="3_wkqp1"]
+[ext_resource type="Shader" path="res://shaders/blur_vignette.gdshader" id="4_lsv2l"]
+[ext_resource type="Shader" path="res://shaders/color_vignette.gdshader" id="5_u6vma"]
+
+[sub_resource type="Animation" id="Animation_3mavd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wkqp1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4jnlr"]
+resource_name = "spinn"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wkqp1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/MarginContainer/VBoxContainer/Button/CogWheel:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73k32"]
+_data = {
+"RESET": SubResource("Animation_3mavd"),
+"spinn": SubResource("Animation_4jnlr")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07b0d"]
+shader = ExtResource("4_lsv2l")
+shader_parameter/blur_radius = 0.609
+shader_parameter/blur_amount = 0.948
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.702
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xxld"]
+shader = ExtResource("5_u6vma")
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0.00077082, 0.0886012, 0.152086, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jyl25"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(900, 350, 1)
+direction = Vector3(-0.25, 1, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.2
+turbulence_enabled = true
+turbulence_noise_strength = 15.51
+turbulence_noise_speed_random = 1.01
+turbulence_influence_min = 0.325
+turbulence_influence_max = 0.403
+turbulence_initial_displacement_min = 89.0
+turbulence_initial_displacement_max = 100.0
+
+[node name="HUD and Camera" type="Node2D"]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("1_4150d")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("2_dkj8h")]
+visible = false
+anchors_preset = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+offset_right = 87.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HUD/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="CogWheel" type="Sprite2D" parent="HUD/MarginContainer/VBoxContainer/Button"]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = 10
+position = Vector2(43, 41)
+scale = Vector2(0.333, 0.333)
+texture = ExtResource("3_wkqp1")
+hframes = 12
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="HUD/MarginContainer/VBoxContainer/Button"]
+root_node = NodePath("../../../../../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_73k32")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+position = Vector2(2, -105)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+material = SubResource("ShaderMaterial_07b0d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1218.0
+offset_top = -837.0
+offset_right = 1214.0
+offset_bottom = 739.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D"]
+material = SubResource("ShaderMaterial_5xxld")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1282.0
+offset_top = -861.0
+offset_right = 1278.0
+offset_bottom = 811.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Camera2D"]
+modulate = Color(1, 1, 0.109804, 0.505882)
+position = Vector2(0, 50)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_jyl25")
+lifetime = 5.0
+
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/Button" to="HUD" method="_on_button_pressed"]

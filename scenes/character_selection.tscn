@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2p6nroq2re8o"]
+[gd_scene load_steps=12 format=3 uid="uid://cvk8dd4grhbkn"]
 
 [ext_resource type="Script" path="res://src/Actors/play_menu.gd" id="1_7im7c"]
 [ext_resource type="Texture2D" uid="uid://cb3cwnxfqrfnx" path="res://assets/textures/character_selection_screen/shroomguy jumper title screen play ALUS.png" id="2_ffnfg"]

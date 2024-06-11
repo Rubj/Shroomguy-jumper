@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1c0h158h7q63"]
+[gd_scene load_steps=14 format=3 uid="uid://s4n2o7ql5gyw"]
 
 [ext_resource type="Texture2D" uid="uid://bu076ypy3iap8" path="res://assets/textures/player Clay/player Clay idle spritesheet.png" id="1_etvth"]
+[ext_resource type="Script" path="res://src/Actors/player_clay.gd" id="1_v3s10"]
 [ext_resource type="Texture2D" uid="uid://by3jkmyklgcx2" path="res://assets/textures/player Clay/player Clay walk spritesheet.png" id="2_bjd77"]
 [ext_resource type="Texture2D" uid="uid://biihwtbtx3g34" path="res://assets/textures/player Clay/player Clay ladder spritesheet.png" id="3_67f8y"]
 [ext_resource type="Texture2D" uid="uid://dfuoa0ewqv56x" path="res://assets/textures/player Clay/player Clay ladder idle spritesheet.png" id="4_yjtsx"]
+[ext_resource type="PackedScene" uid="uid://ds21df7wwvr4l" path="res://scenes/hud_and_camera.tscn" id="5_slpwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thib3"]
 size = Vector2(58, 43)
@@ -399,7 +401,8 @@ _data = {
 "walk": SubResource("Animation_fmn7a")
 }
 
-[node name="Player_clay" type="CharacterBody2D" groups=["bouncable"]]
+[node name="Player_clay" type="CharacterBody2D" groups=["Player", "bouncable"]]
+script = ExtResource("1_v3s10")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.14, 0.14)
@@ -415,3 +418,5 @@ libraries = {
 "": SubResource("AnimationLibrary_fksej")
 }
 autoplay = "idle"
+
+[node name="HUD and Camera" parent="." instance=ExtResource("5_slpwb")]

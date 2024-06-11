@@ -45,7 +45,7 @@ func move(delta):
 			velocity.x = knockback_dir.x
 			velocity.y = (gravity - gravity) -15
 		elif is_chasing_player and !taking_damage:
-			var dir_to_player = position.direction_to(player.position) * speed
+			var dir_to_player = position.direction_to(player.position) * speed #see hetkel katki (kukk jookseb player controlleri poole (vist)
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
 		elif take_damage:

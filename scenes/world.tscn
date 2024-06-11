@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://kb3h7dpr4me6"]
 
+[ext_resource type="Script" path="res://src/Actors/PlayerController.gd" id="1_2yiqf"]
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
-[ext_resource type="Script" path="res://src/Actors/PlayerController.gd" id="1_lprw3"]
 [ext_resource type="Shader" path="res://shaders/godrays.gdshader" id="1_v35ph"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
 [ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="3_tpeul"]
@@ -38,8 +38,8 @@ size = Vector2(42, 54)
 [node name="World" type="Node2D"]
 
 [node name="PlayerController" type="Node2D" parent="."]
-position = Vector2(30, 22)
-script = ExtResource("1_lprw3")
+position = Vector2(1091, 339)
+script = ExtResource("1_2yiqf")
 
 [node name="Marker2D" type="Marker2D" parent="PlayerController"]
 gizmo_extents = 40.0
