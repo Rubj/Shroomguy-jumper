@@ -4,17 +4,21 @@ class_name KukkEnemy
 
 @onready var ap = $AnimationPlayer
 
-const speed = 50
+const speed_max = 70
 
 var dir: Vector2
 var is_chasing_player: bool = false
 var is_roaming: bool = true
 
 const gravity = 800
-var knockback = -100
+var knockback = -10.0
+var knockback_max = -400.0
 var health = 80
 var health_max = 80
 var health_min = 0
+
+var acceleration = 0.25
+var friction = 0.1
 
 var dead = false
 var taking_damage = false
@@ -26,7 +30,7 @@ func _process(delta):
 	
 	if !is_on_floor():
 		velocity.y += gravity * delta
-		velocity.x = 0
+		#velocity.x = 0
 	if velocity.y > 1500:
 		velocity.y = 1500
 	
@@ -39,19 +43,20 @@ func _process(delta):
 func move(delta):
 	if !dead:
 		if !is_chasing_player and !taking_damage:
-			velocity += dir * speed * delta
+			velocity += dir * speed_max * delta
 		elif !is_chasing_player and take_damage:
-			var knockback_dir = position.direction_to(player.position) * knockback
-			velocity.x = knockback_dir.x
-			velocity.y = (gravity - gravity) -15
+			var knockback_dir = position.direction_to(player.global_position) * lerp(knockback_max, knockback, 0.7)
+			velocity.x = lerp(knockback_dir.x, 0.0, friction)
+			velocity.y = (gravity - gravity) + lerp(-25.0, 0.0, 0.3)
 		elif is_chasing_player and !taking_damage:
-			var dir_to_player = position.direction_to(player.position) * speed #see hetkel katki (kukk jookseb player controlleri poole (vist)
-			velocity.x = dir_to_player.x
+			var dir_to_player = position.direction_to(player.global_position) * speed_max
+			velocity.x = lerpf(dir_to_player.x, speed_max, acceleration)
 			dir.x = abs(velocity.x) / velocity.x
+			velocity.x = clamp(velocity.x, -speed_max, speed_max)
 		elif take_damage:
-			var knockback_dir = position.direction_to(player.position) * knockback
-			velocity.x = knockback_dir.x
-			velocity.y = (gravity - gravity) -15
+			var knockback_dir = position.direction_to(player.global_position) * lerp(knockback_max, knockback, 0.7)
+			velocity.x = lerp(knockback_dir.x, 0.0, friction)
+			velocity.y = (gravity - gravity) + lerp(-25.0, 0.0, 0.3)
 		is_roaming = true
 	elif dead:
 		velocity.x = 0

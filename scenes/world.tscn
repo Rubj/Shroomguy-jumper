@@ -160,6 +160,7 @@ texture = ExtResource("3_tpeul")
 metadata/_edit_lock_ = true
 
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
+visible = false
 text = "ToDo
 - Run start line and finish line with timer
 and stuff. (Kõige lihtsam game loop -- again but faster)
