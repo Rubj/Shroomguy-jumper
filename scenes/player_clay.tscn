@@ -418,6 +418,5 @@ shape = SubResource("RectangleShape2D_thib3")
 libraries = {
 "": SubResource("AnimationLibrary_fksej")
 }
-autoplay = "idle"
 
 [node name="HUD and Camera" parent="." instance=ExtResource("5_slpwb")]
