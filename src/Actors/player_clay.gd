@@ -23,6 +23,9 @@ var assemble_ladder_animation_playing: bool    = false
 var disassemble_ladder_animation_playing: bool = false
 
 
+#log
+var log_printed
+
 func _ready():
 	Global.playerBody = self
 
@@ -66,19 +69,14 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, 0.0, friction)
 
-	if Input.is_action_just_pressed("ability01") and is_on_floor():
+	if (Input.is_action_just_pressed("ability01") and is_on_floor() and !disassemble_ladder_animation_playing and !assemble_ladder_animation_playing):
 		if is_ladder:
-			print('hakka mitte redeliks')
 			disassemble_ladder_animation_playing = true
-			print(ap.get_assigned_animation())
-			await get_tree().create_timer(6.1).timeout
-			print(ap.get_assigned_animation())
-			disassemble_ladder_animation_playing = false
-			print('set is ladder false')
-			setIsLadder(false)
+			ap.clear_queue()
 		else:
 			assemble_ladder_animation_playing = true
-			await get_tree().create_timer(6.1).timeout
+			ap.clear_queue()
+			await ap.animation_finished
 			assemble_ladder_animation_playing = false
 			setIsLadder(true)
 
@@ -88,26 +86,38 @@ func _physics_process(delta):
 	update_animations(horizontal_direction)
 
 
-func update_animations(horizontal_direction):
-	#print('assemble_ladder_animation_playing:' + str(assemble_ladder_animation_playing) + ' disassemble_ladder_animation_playing:' + str(disassemble_ladder_animation_playing))
+func update_animations(horizontal_direction) -> void:
+	slog([assemble_ladder_animation_playing, disassemble_ladder_animation_playing, is_ladder, ap.get_assigned_animation(), ap.get_playing_speed()])
+
+	if disassemble_ladder_animation_playing:
+		await ap.animation_finished
+		ap.play("ladder", -1, -1.0, true)
+		await ap.animation_finished
+		setIsLadder(false)
+		disassemble_ladder_animation_playing = false
+		return
 	if assemble_ladder_animation_playing:
-		ap.play("ladder")
-	elif disassemble_ladder_animation_playing:
-		ap.play("ladder") #todo
+		ap.play("ladder", -1, 1.0, false)
+		return
+
+	if is_ladder:
+		ap.play("ladder_idle", -1, 1.0, false)
 	else:
-		if is_ladder:
-			ap.play("ladder_idle")
-		else:
-			if is_on_floor():
-				if horizontal_direction == 0:
-					ap.play("idle")
-				else:
-					ap.play("walk")
+		if is_on_floor():
+			if horizontal_direction == 0:
+				ap.play("idle")
 			else:
-				pass
-				#ap.play("fall") todo
+				ap.play("walk")
+		else:
+			pass
+			#ap.play("fall") todo
 
-
+func slog(vars) -> void:
+	#todo hash instead str for speed
+	if (str(vars) == log_printed):
+		return
+	print(vars)
+	log_printed = str(vars)
 
 func setIsLadder(v: bool):
 	if is_ladder != v:
