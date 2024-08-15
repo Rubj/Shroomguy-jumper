@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed_max = 125
 @export var acceleration = 1
@@ -136,6 +137,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 	update_animations(horizontal_direction)
+	
+	if position.y >= 3500:
+		die()
 
 
 func update_animations(horizontal_direction):
@@ -237,3 +241,5 @@ func set_damage(attack_type):
 		current_damage_to_deal = 20
 	Global.playerDamageAmount = current_damage_to_deal
 
+func die():
+	Global.respawn_player()

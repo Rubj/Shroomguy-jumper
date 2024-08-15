@@ -9,3 +9,11 @@ var playerDamageAmount: int
 var playerHitbox: Area2D
 
 var kukkSightZone: Area2D
+
+
+var current_checkpoint : Checkpoint
+
+func respawn_player():
+	if current_checkpoint != null:
+		playerBody.global_position = current_checkpoint.global_position
+
