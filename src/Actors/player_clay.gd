@@ -93,7 +93,7 @@ func update_animations(horizontal_direction):
 	if assemble_ladder_animation_playing:
 		ap.play("ladder")
 	elif disassemble_ladder_animation_playing:
-		ap.play("ladder") #todo
+		ap.play("ladder_backwards") #todo
 	else:
 		if is_ladder:
 			ap.play("ladder_idle")
@@ -106,7 +106,6 @@ func update_animations(horizontal_direction):
 			else:
 				pass
 				#ap.play("fall") todo
-
 
 
 func setIsLadder(v: bool):
