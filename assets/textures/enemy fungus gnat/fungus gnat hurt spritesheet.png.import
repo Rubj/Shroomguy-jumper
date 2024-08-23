@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcbh0uyfkv41f"
-path="res://.godot/imported/kukk death spritesheet.png-1092f0651edf76607ca6bfabf5fc510b.ctex"
+uid="uid://d0tnld2sxm4e6"
+path="res://.godot/imported/fungus gnat hurt spritesheet.png-da03f0dcfd12b82ae0ca1279761edbd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/enemy kukk/kukk death spritesheet.png"
-dest_files=["res://.godot/imported/kukk death spritesheet.png-1092f0651edf76607ca6bfabf5fc510b.ctex"]
+source_file="res://assets/textures/enemy fungus gnat/fungus gnat hurt spritesheet.png"
+dest_files=["res://.godot/imported/fungus gnat hurt spritesheet.png-da03f0dcfd12b82ae0ca1279761edbd8.ctex"]
 
 [params]
 

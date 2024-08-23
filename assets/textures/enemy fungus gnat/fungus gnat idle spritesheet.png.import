@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0tnld2sxm4e6"
-path="res://.godot/imported/fungus gnat hurt spritesheet.png-4bd4255a507e1c0ed8ab09e1ed96262d.ctex"
+uid="uid://cjohmtep14ba0"
+path="res://.godot/imported/fungus gnat idle spritesheet.png-07a98e59b712781b2536486038067d2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/fungus gnat enemy/fungus gnat hurt spritesheet.png"
-dest_files=["res://.godot/imported/fungus gnat hurt spritesheet.png-4bd4255a507e1c0ed8ab09e1ed96262d.ctex"]
+source_file="res://assets/textures/enemy fungus gnat/fungus gnat idle spritesheet.png"
+dest_files=["res://.godot/imported/fungus gnat idle spritesheet.png-07a98e59b712781b2536486038067d2f.ctex"]
 
 [params]
 

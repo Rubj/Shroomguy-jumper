@@ -272,13 +272,19 @@ layout_mode = 2
 focus_mode = 0
 text = "CLAY      (placeholder)"
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_entered"]
+[node name="Kukk" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+text = "KUKK       (placeholder)"
+
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_mouse_exited"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_clay_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Kukk" to="." method="_on_kukk_pressed"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://eoff5ewdxst5"]
 
 [ext_resource type="Script" path="res://src/Actors/fungus_gnat_enemy.gd" id="1_ldvy7"]
-[ext_resource type="Texture2D" uid="uid://r2n3ll2a7s6i" path="res://assets/textures/fungus gnat enemy/fungus gnat death spritesheet.png" id="3_6ge80"]
-[ext_resource type="Texture2D" uid="uid://d0tnld2sxm4e6" path="res://assets/textures/fungus gnat enemy/fungus gnat hurt spritesheet.png" id="4_brcub"]
-[ext_resource type="Texture2D" uid="uid://cjohmtep14ba0" path="res://assets/textures/fungus gnat enemy/fungus gnat idle spritesheet.png" id="5_mex3k"]
+[ext_resource type="Texture2D" uid="uid://r2n3ll2a7s6i" path="res://assets/textures/enemy fungus gnat/fungus gnat death spritesheet.png" id="3_6ge80"]
+[ext_resource type="Texture2D" uid="uid://d0tnld2sxm4e6" path="res://assets/textures/enemy fungus gnat/fungus gnat hurt spritesheet.png" id="4_brcub"]
+[ext_resource type="Texture2D" uid="uid://cjohmtep14ba0" path="res://assets/textures/enemy fungus gnat/fungus gnat idle spritesheet.png" id="5_mex3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5f28b"]
 radius = 45.0111

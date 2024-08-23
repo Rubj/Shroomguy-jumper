@@ -26,3 +26,10 @@ func _on_clay_pressed() -> void:
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 	Global.selectedCharacter = 1
+
+
+func _on_kukk_pressed() -> void:
+	$AnimationPlayer.play("fade_to_black")
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	Global.selectedCharacter = 2

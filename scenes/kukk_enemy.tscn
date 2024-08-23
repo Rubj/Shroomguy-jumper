@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://bgnxrpi6fwa7g"]
 
 [ext_resource type="Script" path="res://src/Actors/KukkEnemy.gd" id="1_en48g"]
-[ext_resource type="Texture2D" uid="uid://bfwtwufntlpxf" path="res://assets/textures/enemy kukk/enemy kukk idle spritesheet.png" id="2_dska8"]
-[ext_resource type="Texture2D" uid="uid://dcbh0uyfkv41f" path="res://assets/textures/enemy kukk/kukk death spritesheet.png" id="3_jrwym"]
-[ext_resource type="Texture2D" uid="uid://bkhdvy5b6u0y5" path="res://assets/textures/enemy kukk/kukk hurt spritesheet.png" id="4_03jy0"]
+[ext_resource type="Texture2D" uid="uid://bfwtwufntlpxf" path="res://assets/textures/player Kukk/enemy kukk idle spritesheet.png" id="2_dska8"]
+[ext_resource type="Texture2D" uid="uid://dcbh0uyfkv41f" path="res://assets/textures/player Kukk/kukk death spritesheet.png" id="3_jrwym"]
+[ext_resource type="Texture2D" uid="uid://bkhdvy5b6u0y5" path="res://assets/textures/player Kukk/kukk hurt spritesheet.png" id="4_03jy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5f28b"]
 radius = 57.0

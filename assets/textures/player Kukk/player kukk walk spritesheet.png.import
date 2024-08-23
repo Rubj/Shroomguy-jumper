@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjohmtep14ba0"
-path="res://.godot/imported/fungus gnat idle spritesheet.png-19553799ef1aabe8f8c33139cec31687.ctex"
+uid="uid://duiqdhip6qecl"
+path="res://.godot/imported/player kukk walk spritesheet.png-770bd8e81d493edf70c0fa635185ee8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/fungus gnat enemy/fungus gnat idle spritesheet.png"
-dest_files=["res://.godot/imported/fungus gnat idle spritesheet.png-19553799ef1aabe8f8c33139cec31687.ctex"]
+source_file="res://assets/textures/player Kukk/player kukk walk spritesheet.png"
+dest_files=["res://.godot/imported/player kukk walk spritesheet.png-770bd8e81d493edf70c0fa635185ee8f.ctex"]
 
 [params]
 

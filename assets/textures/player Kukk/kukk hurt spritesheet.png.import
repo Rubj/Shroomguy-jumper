@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfwtwufntlpxf"
-path="res://.godot/imported/enemy kukk idle spritesheet.png-29805751ce5fbff18c466948e69cd1de.ctex"
+uid="uid://bkhdvy5b6u0y5"
+path="res://.godot/imported/kukk hurt spritesheet.png-3c0d8734e069540e48879c59b108c8b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/enemy kukk/enemy kukk idle spritesheet.png"
-dest_files=["res://.godot/imported/enemy kukk idle spritesheet.png-29805751ce5fbff18c466948e69cd1de.ctex"]
+source_file="res://assets/textures/player Kukk/kukk hurt spritesheet.png"
+dest_files=["res://.godot/imported/kukk hurt spritesheet.png-3c0d8734e069540e48879c59b108c8b2.ctex"]
 
 [params]
 
