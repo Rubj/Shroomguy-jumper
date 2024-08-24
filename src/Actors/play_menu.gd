@@ -12,6 +12,8 @@ func _on_plot_mouse_entered() -> void:
 func _on_plot_mouse_exited() -> void:
 	$MarginContainer/VBoxContainer/Plot/Sprite2D.self_modulate = Color(1.0, 1.0, 1.0, 0.8)
 
+# For future me - don't copy paste buttons, it will not work
+
 func _on_plot_pressed() -> void:
 	$MarginContainer/VBoxContainer/Plot/AnimationPlayer.play("play_on_click")
 	await get_tree().create_timer(2.2).timeout
