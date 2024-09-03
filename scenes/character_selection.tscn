@@ -277,12 +277,12 @@ custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 text = "KUKK       (placeholder)"
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_entered"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_mouse_exited"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_plot_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Plot" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Clay" to="." method="_on_play_pressed"]

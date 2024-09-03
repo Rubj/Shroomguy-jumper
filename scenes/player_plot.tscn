@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://cldau5f2k2qso"]
+[gd_scene load_steps=42 format=3 uid="uid://cldau5f2k2qso"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/player Plot/shroomguy idle spritesheet.png" id="2_qadvj"]
+[ext_resource type="Shader" path="res://shaders/player_plot_dash.gdshader" id="2_remhm"]
 [ext_resource type="PackedScene" uid="uid://ds21df7wwvr4l" path="res://scenes/hud_and_camera.tscn" id="3_10vaf"]
 [ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/player Plot/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/player Plot/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
@@ -17,6 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://demrlyu5yslcr" path="res://assets/textures/smears/smeer air attack 01 spritesheet.png" id="14_2s80t"]
 [ext_resource type="Texture2D" uid="uid://f5chv22uxgyt" path="res://assets/textures/smears/smeer single attack 02 spritesheet.png" id="14_hpbr4"]
 [ext_resource type="Texture2D" uid="uid://by51b43ajnrkl" path="res://assets/textures/smears/smeer double attack 01 spritesheet.png" id="15_x6a2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ery4x"]
+shader = ExtResource("2_remhm")
+shader_parameter/opacity = 1.0
+shader_parameter/r = null
+shader_parameter/g = null
+shader_parameter/b = 0.0
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
 size = Vector2(66, 68)
@@ -1198,6 +1207,7 @@ jump_force = 600
 dash_speed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ery4x")
 position = Vector2(1, -51)
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("2_qadvj")

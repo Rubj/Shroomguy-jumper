@@ -37,6 +37,9 @@ var cayote_counter: int = 0
 var jump_counter: int = 0
 var jump_buffer_counter: int = 0
 
+var Time_Actual_Double : float = 0
+var Time_Double : float = 0.05
+var Time_Life_Double : float = 0.2
 
 var standing_cshape = preload("res://resources/shroomguy_standing_cshape.tres")
 var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres")
@@ -89,6 +92,12 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("hold run") and velocity.x != 0:
 		running = true
+		if Time_Actual_Double >= Time_Double:
+			Time_Actual_Double = 0
+			clear_dash_double()
+			
+		Time_Actual_Double += delta
+		
 		if running and horizontal_direction != 0:
 			velocity.x = lerp(velocity.x, run_speed_max * horizontal_direction, run_acceleration)
 		else:
@@ -98,6 +107,8 @@ func _physics_process(delta):
 		
 	if ! Input.is_action_pressed("hold run"):
 		running = false
+		
+		Time_Actual_Double != delta
 	
 	if Input.is_action_just_pressed("crouch"):
 		crouch()
@@ -164,6 +175,8 @@ func update_animations(horizontal_direction):
 			ap.play("jump")
 		elif velocity.y > 0 and !attacking:
 			ap.play("fall")
+			
+
 
 
 func above_head_is_empty() -> bool:
@@ -243,3 +256,23 @@ func set_damage(attack_type):
 
 func die():
 	Global.respawn_player()
+
+func clear_dash_double():
+	var dash_double = $Sprite2D.duplicate(true)
+	dash_double.material = $Sprite2D.material.duplicate(true)
+	dash_double.material.set_shader_parameter("opacity", 0.3)
+	dash_double.material.set_shader_parameter("r", 0.0)
+	dash_double.material.set_shader_parameter("g", 0.0)
+	dash_double.material.set_shader_parameter("b", 0.8)
+	dash_double.material.set_shader_parameter("mix_color", 0.7)
+	dash_double.position.y += position.y
+	
+	if $Sprite2D.scale.x == -1:
+		dash_double.position.x = position.x - dash_double.position.x
+	else:
+		dash_double.position.x += position.x
+	dash_double.z_index -= 1
+	get_parent().add_child(dash_double)
+	await get_tree().create_timer(Time_Life_Double).timeout
+	dash_double.queue_free()
+

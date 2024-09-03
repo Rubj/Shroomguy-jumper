@@ -119,9 +119,6 @@ noise = SubResource("FastNoiseLite_dqlbp")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bm2f3"]
 shader = ExtResource("15_l2yod")
 shader_parameter/water_color = Color(0, 0, 0.145098, 0.780392)
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 shader_parameter/wave_noise = SubResource("NoiseTexture2D_opvq3")
 
 [node name="World" type="Node2D"]
@@ -248,11 +245,10 @@ texture = ExtResource("2_tutlr")
 
 [node name="TaustParallaxKatsetusV1" type="Sprite2D" parent="."]
 modulate = Color(0.415788, 0.39669, 0.527748, 1)
-z_index = -1
+z_index = -3
 position = Vector2(1780, 275)
 scale = Vector2(1.50414, 1.50414)
 texture = ExtResource("3_tpeul")
-metadata/_edit_lock_ = true
 
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
 text = "ToDo
