@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw6jxb78gn5lc"]
+
+[ext_resource type="PackedScene" uid="uid://bsm5kup7m0n2a" path="res://scenes/tile_map.tscn" id="1_uj858"]
+[ext_resource type="Script" path="res://src/Actors/procedural_caves.gd" id="2_aljik"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_uj858")]
+texture_filter = 1
+material = null
+use_parent_material = true
+script = ExtResource("2_aljik")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.05, 0.05)
