@@ -9,3 +9,6 @@ shadow_filter = 2
 shadow_filter_smooth = 1.5
 texture = ExtResource("1_riu8s")
 texture_scale = 1.4
+
+[node name="Collider" type="RayCast2D" parent="."]
+scale = Vector2(3, 3)

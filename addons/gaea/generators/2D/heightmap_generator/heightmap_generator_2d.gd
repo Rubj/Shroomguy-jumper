@@ -15,6 +15,10 @@ func handle_lights():
 		var light_instance = preload("res://scenes/point_light_2d.tscn").instantiate()
 		light_instance.set_position(Vector2(randf_range(2000, 14000), randf_range(-2000, -16000)))
 		add_child(light_instance)
+	if !get_child(0).find_child("Collider").is_colliding:
+		pass
+	else:
+		get_child(0).set_position(Vector2(randf_range(2000, 14000), randf_range(-2000, -16000)))
 
 func generate(starting_grid: GaeaGrid = null) -> void:
 	if Engine.is_editor_hint() and not editor_preview:

@@ -120,13 +120,13 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_07b0d"]
 shader = ExtResource("4_lsv2l")
 shader_parameter/blur_radius = 0.609
-shader_parameter/blur_amount = 0.948
+shader_parameter/blur_amount = 2.003
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.702
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5xxld"]
 shader = ExtResource("5_u6vma")
-shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_intensity = 1.125
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0.00077082, 0.0886012, 0.152086, 1)
 
@@ -186,6 +186,7 @@ emission_curve = SubResource("CurveTexture_ceult")
 turbulence_enabled = true
 
 [node name="HUD and Camera" type="Node2D"]
+z_index = 10
 
 [node name="HUD" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -256,7 +257,7 @@ grow_vertical = 2
 [node name="GPUParticles2D_fireflyes" type="GPUParticles2D" parent="Camera2D"]
 modulate = Color(1, 1, 0.109804, 0.505882)
 position = Vector2(0, 50)
-amount = 25
+amount = 28
 process_material = SubResource("ParticleProcessMaterial_jyl25")
 lifetime = 5.0
 
