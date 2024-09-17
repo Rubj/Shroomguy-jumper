@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=69 format=3 uid="uid://dp40c20weip4t"]
+[gd_resource type="TileSet" load_steps=68 format=3 uid="uid://dp40c20weip4t"]
 
 [ext_resource type="Texture2D" uid="uid://kl5wgbwpmagu" path="res://assets/textures/tilesets/TILESET shroom forest Tile128x128 KATSE v01.png" id="1_a3sdd"]
 [ext_resource type="Texture2D" uid="uid://chtq2khoawnvy" path="res://assets/textures/tilesets/TILESET ANIMATION shroom forest Tile128x128.png" id="2_eefa4"]
@@ -15,9 +15,6 @@ polygon = PackedVector2Array(-16, -64, 64, -64, 64, 16, 32, 16, 0, 0, -16, -32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u7ax3"]
 polygon = PackedVector2Array(-64, -16, 64, -16, 64, 64, -64, 64)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c4hs8"]
-polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3offn"]
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, 16, -64, 16)
@@ -315,7 +312,6 @@ texture_region_size = Vector2i(128, 128)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 16, -64, 16, 64, -64, 64)
 1:1/0 = 0
 1:1/0/terrain_set = 0
-1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_c4hs8")
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)

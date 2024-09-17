@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://nmqen8kwhv47"]
+
+[ext_resource type="Texture2D" uid="uid://dvkib8adrf5u2" path="res://assets/textures/masks/light mask 01.png" id="1_riu8s"]
+
+[node name="PointLight2D" type="PointLight2D" groups=["Scattered_light"]]
+color = Color(0.875856, 0.423078, 0, 1)
+energy = 6.63
+shadow_filter = 2
+shadow_filter_smooth = 1.5
+texture = ExtResource("1_riu8s")
+texture_scale = 1.4
