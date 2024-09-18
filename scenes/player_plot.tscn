@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cldau5f2k2qso"]
+[gd_scene load_steps=44 format=3 uid="uid://cldau5f2k2qso"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/player Plot/shroomguy idle spritesheet.png" id="2_qadvj"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://d03pdick43qpa" path="res://assets/textures/smears/smeer single attack 01 spritesheet.png" id="13_bci3y"]
 [ext_resource type="Texture2D" uid="uid://demrlyu5yslcr" path="res://assets/textures/smears/smeer air attack 01 spritesheet.png" id="14_2s80t"]
 [ext_resource type="Texture2D" uid="uid://f5chv22uxgyt" path="res://assets/textures/smears/smeer single attack 02 spritesheet.png" id="14_hpbr4"]
+[ext_resource type="Texture2D" uid="uid://dfjjrb35v0kxo" path="res://assets/textures/masks/cone mask.png" id="15_br2fl"]
+[ext_resource type="Script" path="res://src/Actors/ViewLight.gd" id="15_ks7g5"]
 [ext_resource type="Texture2D" uid="uid://by51b43ajnrkl" path="res://assets/textures/smears/smeer double attack 01 spritesheet.png" id="15_x6a2f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ery4x"]
@@ -1234,6 +1236,20 @@ target_position = Vector2(0, -65)
 [node name="CrouchRaycast_2" type="RayCast2D" parent="."]
 position = Vector2(34, -6)
 target_position = Vector2(0, -65)
+
+[node name="ViewLight" type="PointLight2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(1.31, 1.81)
+color = Color(0.513929, 0.499677, 0.943232, 1)
+energy = 1.89
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+shadow_filter = 2
+shadow_filter_smooth = 1.1
+texture = ExtResource("15_br2fl")
+offset = Vector2(0, -259)
+texture_scale = 1.21
+script = ExtResource("15_ks7g5")
 
 [node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.3

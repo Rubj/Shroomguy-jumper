@@ -8,18 +8,6 @@ extends ChunkAwareGenerator2D
 
 @export var settings: HeightmapGenerator2DSettings
 
-@export var lights_number: int = 40
-
-func handle_lights():
-	for n in lights_number:
-		var light_instance = preload("res://scenes/point_light_2d.tscn").instantiate()
-		light_instance.set_position(Vector2(randf_range(2000, 14000), randf_range(-2000, -16000)))
-		add_child(light_instance)
-	if !get_child(0).find_child("Collider").is_colliding:
-		pass
-	else:
-		get_child(0).set_position(Vector2(randf_range(2000, 14000), randf_range(-2000, -16000)))
-
 func generate(starting_grid: GaeaGrid = null) -> void:
 	if Engine.is_editor_hint() and not editor_preview:
 		push_warning("%s: Editor Preview is not enabled so nothing happened!" % name)
@@ -42,7 +30,7 @@ func generate(starting_grid: GaeaGrid = null) -> void:
 		grid = starting_grid
 	_set_grid()
 	_apply_modifiers(settings.modifiers)
-	handle_lights()
+
 
 	if is_instance_valid(next_pass):
 		next_pass.generate(grid)
@@ -103,7 +91,6 @@ func _set_grid() -> void:
 
 	_set_grid_area(area)
 
-
 func _set_chunk_grid(chunk_position: Vector2i) -> void:
 	_set_grid_area(Rect2i(chunk_position * chunk_size, chunk_size))
 
@@ -120,5 +107,4 @@ func _set_grid_area(area: Rect2i) -> void:
 				grid.set_valuexy(x, y, settings.tile)
 			elif y == -height - 1 and settings.air_layer:
 				grid.set_valuexy(x, y, null)
-
 

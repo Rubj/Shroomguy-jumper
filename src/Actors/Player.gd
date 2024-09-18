@@ -46,6 +46,7 @@ var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres"
 
 
 func _ready():
+	$".".visible = true
 	attacking = false
 	Global.playerBody = self
 	smears_sprite.visible = false

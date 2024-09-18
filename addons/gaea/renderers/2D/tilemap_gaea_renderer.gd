@@ -25,7 +25,6 @@ func _ready() -> void:
 					The generator's tile size has been set to the TileMap's tile size.")
 		generator.tile_size = Vector2(tile_map.tile_set.tile_size) * tile_map.scale
 
-
 func _draw_area(area: Rect2i) -> void:
 	var terrains: Dictionary
 
@@ -71,12 +70,10 @@ func _draw_area(area: Rect2i) -> void:
 
 	(func(): area_rendered.emit(area)).call_deferred()
 
-
 func _draw() -> void:
 	if clear_tile_map_on_draw:
 		tile_map.clear()
 	super._draw()
-
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray
