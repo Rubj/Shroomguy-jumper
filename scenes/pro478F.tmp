@@ -7,7 +7,7 @@
 script = ExtResource("1_ejy3p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.05, 0.05)
+zoom = Vector2(0.4, 0.4)
 
 [node name="TileMap" parent="." instance=ExtResource("2_owgoe")]
 texture_filter = 1
@@ -15,10 +15,10 @@ material = null
 use_parent_material = true
 
 [node name="Button" type="Button" parent="."]
-offset_left = -18902.0
-offset_top = -10498.0
-offset_right = -15937.0
-offset_bottom = -8549.0
+offset_left = -2326.0
+offset_top = -1314.0
+offset_right = -1953.0
+offset_bottom = -1093.0
 text = "Generate"
 
 [node name="MapNode" type="Node" parent="."]

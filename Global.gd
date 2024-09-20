@@ -10,12 +10,12 @@ var playerHitbox: Area2D
 
 var kukkSightZone: Area2D
 
-
-var current_checkpoint : Checkpoint
+var current_checkpoint : Checkpoint = null
 
 func respawn_player():
 	if current_checkpoint != null:
 		playerBody.global_position = current_checkpoint.global_position
+
 
 
 # - Dungeon Generation -
@@ -26,6 +26,11 @@ var min_number_rooms = 8
 var max_number_rooms = 16
 
 var generation_chance = 20
+
+var room_connect_up : bool
+var room_connect_right : bool
+var room_connect_down : bool
+var room_connect_left : bool
 
 func generate(room_seed):
 	seed(room_seed)
@@ -38,11 +43,16 @@ func generate(room_seed):
 	while(size > 0):
 		for i in dungeon.keys():
 			if (randf_range(0,100) < generation_chance) and size > 0:
+				#room_connect_up = false
+				#room_connect_right = false
+				#room_connect_down = false
+				#room_connect_left = false
 				var direction = randf_range(0,4)
 				if (direction < 1):
 					var new_room_pos = i + Vector2(1,0)
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
+						room_connect_up = true
 						size -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(1,0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(1,0))
@@ -50,6 +60,7 @@ func generate(room_seed):
 					var new_room_pos = i + Vector2(-1,0)
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
+						room_connect_right = true
 						size -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(-1,0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(-1,0))
@@ -57,6 +68,7 @@ func generate(room_seed):
 					var new_room_pos = i + Vector2(0,1)
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
+						room_connect_down = true
 						size -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(0,1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(0,1))
@@ -64,6 +76,7 @@ func generate(room_seed):
 					var new_room_pos = i + Vector2(0,-1)
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
+						room_connect_left = true
 						size -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(0,-1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(0,-1))
@@ -79,12 +92,12 @@ func connect_rooms(room1, room2, dir):
 	room1.number_of_connections += 1
 	room2.number_of_connections += 1
 
+
 func is_interesting(dungeon):
 	var room_with_three = 0
 	for i in dungeon.keys():
 		if (dungeon.get(i).number_of_connections >= 3):
 			room_with_three += 1
 	return room_with_three >= 2
-
 
 
