@@ -31,41 +31,42 @@ func load_map():
 	Level.clear()
 	
 	for i in dungeon.keys():
-		if Global.room_connect_up == true && Global.room_connect_right == true && Global.room_connect_down == true && Global.room_connect_left == true:
+		var room = dungeon.get(i)
+		if room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_4_open)
-		elif  Global.room_connect_up == false && Global.room_connect_right == true && Global.room_connect_down == false && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_2_open_horizontal)
-		elif Global.room_connect_up == true && Global.room_connect_right == false && Global.room_connect_down == true && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_2_open_vertival)
-		elif Global.room_connect_up == true && Global.room_connect_right == false && Global.room_connect_down == false && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_1_open_up)
-		elif Global.room_connect_up == false && Global.room_connect_right == false && Global.room_connect_down == false && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_1_open_left)
-		elif Global.room_connect_up == false && Global.room_connect_right == false && Global.room_connect_down == true && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_1_open_down)
-		elif  Global.room_connect_up == false && Global.room_connect_right == true && Global.room_connect_down == false && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_1_open_right)
-		elif Global.room_connect_up == true && Global.room_connect_right == false && Global.room_connect_down == false && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_2_open_left_up)
-		elif Global.room_connect_up == true && Global.room_connect_right == true && Global.room_connect_down == false && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_2_open_up_right)
-		elif Global.room_connect_up == false && Global.room_connect_right == true && Global.room_connect_down == true && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_2_open_right_down)
-		elif Global.room_connect_up == false && Global.room_connect_right == false && Global.room_connect_down == true && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_2_open_down_left)
-		elif Global.room_connect_up == true && Global.room_connect_right == false && Global.room_connect_down == true && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] == null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_3_open_left)
-		elif Global.room_connect_up == true && Global.room_connect_right == true && Global.room_connect_down == false && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] == null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_3_open_up)
-		elif Global.room_connect_up == true && Global.room_connect_right == true && Global.room_connect_down == true && Global.room_connect_left == false:
+		elif room.connected_rooms[Vector2(0,-1)] != null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] == null:
 			Level.set_pattern(0, i * 40, room_3_open_right)
-		elif Global.room_connect_up == false && Global.room_connect_right == true && Global.room_connect_down == true && Global.room_connect_left == true:
+		elif room.connected_rooms[Vector2(0,-1)] == null && room.connected_rooms[Vector2(1,0)] != null && room.connected_rooms[Vector2(0,1)] != null && room.connected_rooms[Vector2(-1,0)] != null:
 			Level.set_pattern(0, i * 40, room_3_open_down)
-			var c_rooms = dungeon.get(i).connected_rooms
-			if(c_rooms.get(Vector2(1, 0)) != null):
-				Level.set_pattern(0, i * 40 + Vector2(32, 14), path_horizontal)
-			if(c_rooms.get(Vector2(0, 1)) != null):
-				Level.set_pattern(0, i * 40 + Vector2(14, 32), path_vertical)
+		var c_rooms = dungeon.get(i).connected_rooms
+		if(c_rooms.get(Vector2(1, 0)) != null):
+			Level.set_pattern(0, i * 40 + Vector2(32, 14), path_horizontal)
+		if(c_rooms.get(Vector2(0, 1)) != null):
+			Level.set_pattern(0, i * 40 + Vector2(14, 32), path_vertical)
 
 func _on_button_pressed() -> void:
 	randomize()

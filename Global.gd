@@ -35,25 +35,26 @@ var room_connect_left : bool
 func generate(room_seed):
 	seed(room_seed)
 	var dungeon = {}
-	var size = floor(randf_range(min_number_rooms, max_number_rooms))
+	var rooms_to_generate = floor(randf_range(min_number_rooms, max_number_rooms))
 	
 	dungeon[Vector2(0,0)] = room.instantiate()
-	size -= 1
+	rooms_to_generate -= 1
 	
-	while(size > 0):
+	room_connect_up = false
+	room_connect_right = false
+	room_connect_down = false
+	room_connect_left = false
+	
+	while(rooms_to_generate > 0):
 		for i in dungeon.keys():
-			if (randf_range(0,100) < generation_chance) and size > 0:
-				#room_connect_up = false
-				#room_connect_right = false
-				#room_connect_down = false
-				#room_connect_left = false
+			if (randf_range(0,100) < generation_chance) and rooms_to_generate > 0:
 				var direction = randf_range(0,4)
 				if (direction < 1):
 					var new_room_pos = i + Vector2(1,0)
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
 						room_connect_up = true
-						size -= 1
+						rooms_to_generate -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(1,0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(1,0))
 				elif (direction < 2):
@@ -61,7 +62,7 @@ func generate(room_seed):
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
 						room_connect_right = true
-						size -= 1
+						rooms_to_generate -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(-1,0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(-1,0))
 				elif (direction < 3):
@@ -69,7 +70,7 @@ func generate(room_seed):
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
 						room_connect_down = true
-						size -= 1
+						rooms_to_generate -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(0,1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(0,1))
 				elif (direction < 4):
@@ -77,7 +78,7 @@ func generate(room_seed):
 					if (!dungeon.has(new_room_pos)):
 						dungeon[new_room_pos] = room.instantiate()
 						room_connect_left = true
-						size -= 1
+						rooms_to_generate -= 1
 					if (dungeon.get(i).connected_rooms.get(Vector2(0,-1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_pos), Vector2(0,-1))
 	while (!is_interesting(dungeon)):
@@ -89,6 +90,8 @@ func generate(room_seed):
 func connect_rooms(room1, room2, dir):
 	room1.connected_rooms[dir] = room2
 	room2.connected_rooms[-dir] = room1
+	room1.number_of_connections += 1
+	room2.number_of_connections += 1
 	room1.number_of_connections += 1
 	room2.number_of_connections += 1
 
