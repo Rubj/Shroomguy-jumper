@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=34 format=3 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/PlayerController.gd" id="1_2yiqf"]
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
@@ -18,6 +18,7 @@
 [ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="15_l2yod"]
 [ext_resource type="Texture2D" uid="uid://dmdspxhf5c17m" path="res://assets/textures/masks/mask white square.png" id="16_wtwnb"]
 [ext_resource type="Script" path="res://src/Actors/water.gd" id="17_arvy3"]
+[ext_resource type="PackedScene" uid="uid://2mkq2gy1d7me" path="res://scenes/mouse_effect.tscn" id="19_03o2f"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
 
@@ -156,7 +157,7 @@ shader_parameter/CAST_COLOR = Color(0, 0, 0, 1)
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 0.5
 shader_parameter/scale_y = 2.25
-shader_parameter/y_zoom = 0.264866
+shader_parameter/y_zoom = 0.471937
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_afyt3")
 
 [node name="World" type="Node2D"]
@@ -436,5 +437,7 @@ position = Vector2(-2372, -1891)
 scale = Vector2(6.63281, 1.08594)
 texture = ExtResource("16_wtwnb")
 script = ExtResource("17_arvy3")
+
+[node name="MouseEffect" parent="." instance=ExtResource("19_03o2f")]
 
 [connection signal="ready" from="PlayerController" to="PlayerController" method="_on_ready"]
