@@ -4,8 +4,6 @@ extends Control
 #var main = preload("res://scenes/world.tscn")
 
 func _ready() -> void:
-	get_viewport().size = DisplayServer.screen_get_size()
-	
 	$MarginContainer/VBoxContainer/Plot/Sprite2D.self_modulate = Color(1.0, 1.0, 1.0, 0.8)
 
 func _on_plot_mouse_entered() -> void:

@@ -12,5 +12,8 @@ func _ready() -> void:
 
 
 func on_exit_pressed() -> void:
+	Saver.saveSettings()
 	exit_settings_menu.emit()
 	set_process(false)
+
+
