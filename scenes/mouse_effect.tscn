@@ -29,3 +29,4 @@ joint_mode = 2
 end_cap_mode = 2
 round_precision = 12
 script = ExtResource("2_2k8lx")
+lenght = 20

@@ -1,3 +1,4 @@
+class_name CharacterSelection
 extends Control
 
 #var main = preload("res://scenes/world.tscn")
