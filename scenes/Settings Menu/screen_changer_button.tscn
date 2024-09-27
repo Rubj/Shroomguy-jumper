@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbo12h5ueq3ey"]
+
+[ext_resource type="PackedScene" uid="uid://bra73evbbmpk5" path="res://scenes/Settings Menu/options_display_button.tscn" id="1_iw6hd"]
+[ext_resource type="Script" path="res://src/Actors/screen_changer_button.gd" id="2_jovbl"]
+
+[node name="Screen_Changer_Button" instance=ExtResource("1_iw6hd")]
+script = ExtResource("2_jovbl")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Screen"

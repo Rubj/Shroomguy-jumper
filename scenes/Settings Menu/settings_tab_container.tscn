@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc07hn21qf3k3"]
+[gd_scene load_steps=11 format=3 uid="uid://dc07hn21qf3k3"]
 
 [ext_resource type="Texture2D" uid="uid://dot2vjv4e6d2o" path="res://assets/textures/menu/menu frame 01 512x512.png" id="1_6c52g"]
 [ext_resource type="FontFile" uid="uid://darn62xgo1661" path="res://assets/fonts/pixelpoiiz.ttf" id="1_7ukys"]
 [ext_resource type="PackedScene" uid="uid://cgklk1ft7b0d2" path="res://scenes/Settings Menu/window_mode_button.tscn" id="1_aaxp0"]
 [ext_resource type="PackedScene" uid="uid://bgoahdhp20a66" path="res://scenes/Settings Menu/resolution_mode_button.tscn" id="2_7bef2"]
+[ext_resource type="PackedScene" uid="uid://dbo12h5ueq3ey" path="res://scenes/Settings Menu/screen_changer_button.tscn" id="5_a7jfq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir704"]
 content_margin_left = 50.0
@@ -133,6 +134,9 @@ alignment = 1
 layout_mode = 2
 
 [node name="Resolution_Mode_Button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_7bef2")]
+layout_mode = 2
+
+[node name="Screen_Changer_Button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_a7jfq")]
 layout_mode = 2
 
 [node name="Controlls" type="TabBar" parent="TabContainer"]

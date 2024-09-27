@@ -13,6 +13,11 @@ const RESOLUTION_DICTIONARY : Dictionary = {
 	"1152 x 648" : Vector2i(1152, 648)
 }
 
+const SCREEN_DICTIONARY : Dictionary = {
+	"Screen 0" : int(0),
+	"Screen 1" : int(1)
+}
+
 var WMODE: int = 1
 var RES: int = 0
 var SCREEN: int = DisplayServer.window_get_current_screen()
@@ -36,7 +41,6 @@ func _ready() -> void:
 func setWindowValues() -> void:
 	DisplayServer.window_set_position(POS) #TODO why pos always same
 	#TODO set SCREEN
-	#DisplayServer.window_set_current_screen(SCREEN)
 	
 	match WMODE:
 		0: #Fullscreen
@@ -53,6 +57,8 @@ func setWindowValues() -> void:
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	
 	DisplayServer.window_set_size(RESOLUTION_DICTIONARY[RESOLUTION_DICTIONARY.keys()[RES]])
+	
+	DisplayServer.window_set_current_screen(SCREEN_DICTIONARY[SCREEN_DICTIONARY.keys()[SCREEN]])
 
 func saveSettings() -> void: #TODO call this on exit also
 	var dict = {
