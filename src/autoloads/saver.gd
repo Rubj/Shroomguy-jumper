@@ -15,6 +15,8 @@ const RESOLUTION_DICTIONARY : Dictionary = {
 
 var WMODE: int = 1
 var RES: int = 0
+var SCREEN: int = DisplayServer.window_get_current_screen()
+var POS: Vector2 = DisplayServer.window_get_position()
 
 func _ready() -> void:
 	#get_node(".").exit_settings_menu.connect(saveSettings)
@@ -23,13 +25,19 @@ func _ready() -> void:
 		var json = JSON.new()
 		var error = json.parse(saveStr)
 		if error == OK:
-			var dict = json.data
-			WMODE = dict["WMODE"]
-			RES = dict["RES"]
-			print('load! ', dict, ' wmode: ', WMODE,' res: ', RES)
+			var dict: Dictionary = json.data
+			WMODE = dict["WMODE"] if dict.has("WMODE") else WMODE
+			RES = dict["RES"] if dict.has("RES") else RES
+			SCREEN = dict["SCREEN"] if dict.has("SCREEN") else SCREEN
+			POS = str_to_var("Vector2"+dict["POS"]) if dict.has("POS") else POS
+			print('load! ', dict)
 	setWindowValues()
 
 func setWindowValues() -> void:
+	DisplayServer.window_set_position(POS) #TODO why pos always same
+	#TODO set SCREEN
+	#DisplayServer.window_set_current_screen(SCREEN)
+	
 	match WMODE:
 		0: #Fullscreen
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -43,14 +51,17 @@ func setWindowValues() -> void:
 		3: #Borderless Fullscreen
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	
 	DisplayServer.window_set_size(RESOLUTION_DICTIONARY[RESOLUTION_DICTIONARY.keys()[RES]])
 
-func saveSettings() -> void:
+func saveSettings() -> void: #TODO call this on exit also
 	var dict = {
 		"RES": RES,
-		"WMODE": WMODE
+		"WMODE": WMODE,
+		"SCREEN": SCREEN,
+		"POS": POS
 	}
-	print('save! ', dict, ' wmode: ', WMODE,' res: ', RES)
+	print('save! ', dict)
 	var saveFile = FileAccess.open('cool_save.json', FileAccess.WRITE)
 	saveFile.store_string(JSON.stringify(dict))
 
