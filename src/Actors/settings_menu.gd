@@ -1,13 +1,13 @@
 class_name SettingsMenu
 extends Control
 
-@onready var back_button: Button = $MarginContainer/VBoxContainer/Back_Button as Button
+@onready var save_and_exit_button: Button = $MarginContainer/VBoxContainer/Save_And_Exit_Button as Button
 
 signal exit_settings_menu
 
 
 func _ready() -> void:
-	back_button.button_down.connect(on_exit_pressed)
+	save_and_exit_button.button_down.connect(on_exit_pressed)
 	set_process(false)
 
 

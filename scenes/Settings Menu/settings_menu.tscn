@@ -15,6 +15,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+expand_margin_left = 10.0
+expand_margin_top = 2.0
+expand_margin_right = 10.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwqp"]
@@ -74,7 +77,7 @@ modulate = Color(0.720467, 0.720468, 0.720467, 1)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Back_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Save_And_Exit_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(360, 70)
 layout_mode = 2
@@ -87,4 +90,4 @@ theme_override_fonts/font = ExtResource("1_3au11")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_unudo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lwwqp")
-text = "Back"
+text = "Save and Exit"

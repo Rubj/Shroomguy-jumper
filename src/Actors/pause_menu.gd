@@ -12,7 +12,7 @@ func _ready() -> void:
 	handle_connecting_signals()
 
 func _on_resume_pressed() -> void:
-	main.pausedMenu()
+	main.pausedMenu()  # ma ei tea mida see pausedMenu() teeb
 
 func _on_settings_pressed() -> void:
 	margin_container.visible = false
@@ -26,9 +26,15 @@ func _on_title_screen_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
+func _on_respawn_pressed() -> void:
+	main.pausedMenu()
+	Global.respawn_player()
+
 func _on_exit_settings_menu() -> void:
 	margin_container.visible = true
 	settings_menu.visible = false
 
 func handle_connecting_signals() -> void:
 	settings_menu.exit_settings_menu.connect(_on_exit_settings_menu)
+
+
