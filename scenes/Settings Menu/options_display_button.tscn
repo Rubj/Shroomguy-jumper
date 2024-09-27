@@ -1,4 +1,21 @@
-[gd_scene format=3 uid="uid://bra73evbbmpk5"]
+[gd_scene load_steps=3 format=3 uid="uid://bra73evbbmpk5"]
+
+[ext_resource type="FontFile" uid="uid://da4t55u47wbd4" path="res://assets/fonts/Early GameBoy.ttf" id="1_t4vmt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn15a"]
+bg_color = Color(0.145169, 0.0735734, 0.416857, 0.529412)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_right = 10.0
+anti_aliasing = false
 
 [node name="Options_Display_Button" type="Control"]
 layout_mode = 3
@@ -9,21 +26,36 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 160
+layout_mode = 1
+offset_right = 1661.0
+offset_bottom = 64.0
+theme_override_constants/separation = 430
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(264, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.438252, 0.345586, 0.961882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_t4vmt")
 theme_override_font_sizes/font_size = 32
 text = "BASE_LABEL"
-vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
-custom_minimum_size = Vector2(256, 64)
+texture_filter = 1
+custom_minimum_size = Vector2(410, 64)
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.254992, 0.222695, 0.719177, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/arrow_margin = 4
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_t4vmt")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn15a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qn15a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qn15a")

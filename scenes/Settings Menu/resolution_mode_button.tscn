@@ -7,7 +7,7 @@
 script = ExtResource("2_g51fr")
 
 [node name="HBoxContainer" parent="." index="0"]
-theme_override_constants/separation = 500
+offset_right = 1680.0
 
 [node name="Label" parent="HBoxContainer" index="0"]
 text = "Resolution"
