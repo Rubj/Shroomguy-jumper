@@ -1,5 +1,7 @@
 extends Node
 
+var gameStarted: bool
+
 var playerBody: CharacterBody2D
 
 var selectedCharacter: int = 0
@@ -16,6 +18,10 @@ func respawn_player():
 	if current_checkpoint != null:
 		playerBody.global_position = current_checkpoint.global_position
 
+
+var loading_screen = preload("res://scenes/loading_screen.tscn")
+
+var next_scene : String = "res://scenes/character_selection.tscn"
 
 
 # - Dungeon Generation -

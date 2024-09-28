@@ -1,10 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=35 format=3 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/PlayerController.gd" id="1_2yiqf"]
+[ext_resource type="Script" path="res://src/Actors/world.gd" id="1_3f8s3"]
 [ext_resource type="Script" path="res://src/Actors/TEST.gd" id="1_ahykg"]
 [ext_resource type="Shader" path="res://shaders/godrays.gdshader" id="1_v35ph"]
 [ext_resource type="Texture2D" uid="uid://cefx4lmtmnl76" path="res://assets/shroomguy walk0000.png" id="2_tutlr"]
 [ext_resource type="Texture2D" uid="uid://cqkgaxexbu6u4" path="res://assets/taust parallax katsetus v1.png" id="3_tpeul"]
+[ext_resource type="PackedScene" uid="uid://ctgw5nrx60ici" path="res://scenes/scene_transition_animation.tscn" id="4_4sovo"]
 [ext_resource type="PackedScene" uid="uid://dpc00c71oax0e" path="res://scenes/text_edit.tscn" id="4_e8pk0"]
 [ext_resource type="PackedScene" uid="uid://bgnxrpi6fwa7g" path="res://scenes/kukk_enemy.tscn" id="5_iwqty"]
 [ext_resource type="PackedScene" uid="uid://bsm5kup7m0n2a" path="res://scenes/tile_map.tscn" id="7_6uh75"]
@@ -20,27 +22,6 @@
 [ext_resource type="Script" path="res://src/Actors/water.gd" id="17_arvy3"]
 [ext_resource type="PackedScene" uid="uid://2mkq2gy1d7me" path="res://scenes/mouse_effect.tscn" id="19_03o2f"]
 [ext_resource type="PackedScene" uid="uid://du5iieerl0plq" path="res://scenes/rain_frog_npc.tscn" id="20_8h7w1"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_em1i4"]
-size = Vector2(1162, 100)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyg8v"]
-shader = ExtResource("1_v35ph")
-shader_parameter/angle = -0.05
-shader_parameter/position = 0.04
-shader_parameter/spread = 0.625
-shader_parameter/cutoff = -0.108
-shader_parameter/falloff = 1.0
-shader_parameter/edge_fade = 0.614
-shader_parameter/speed = 1.0
-shader_parameter/ray1_density = 8.0
-shader_parameter/ray2_density = 30.0
-shader_parameter/ray2_intensity = 0.3
-shader_parameter/color = Color(0.00423291, 0.225755, 0.90753, 0.8)
-shader_parameter/hdr = false
-shader_parameter/seed = 5.0
 
 [sub_resource type="Environment" id="Environment_13s7k"]
 background_mode = 3
@@ -75,6 +56,27 @@ adjustment_enabled = true
 adjustment_brightness = 0.92
 adjustment_contrast = 1.07
 adjustment_saturation = 1.11
+
+[sub_resource type="QuadMesh" id="QuadMesh_ci0qu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em1i4"]
+size = Vector2(1162, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyg8v"]
+shader = ExtResource("1_v35ph")
+shader_parameter/angle = -0.05
+shader_parameter/position = 0.04
+shader_parameter/spread = 0.625
+shader_parameter/cutoff = -0.108
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.614
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(0.00423291, 0.225755, 0.90753, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mevj4"]
 size = Vector2(42, 54)
@@ -131,10 +133,11 @@ shader_parameter/CAST_COLOR = Color(0, 0, 0, 1)
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 0.5
 shader_parameter/scale_y = 2.25
-shader_parameter/y_zoom = 0.132433
+shader_parameter/y_zoom = 0.629961
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_afyt3")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_3f8s3")
 
 [node name="PlayerController" type="Node2D" parent="."]
 position = Vector2(578, -402)
@@ -142,6 +145,25 @@ script = ExtResource("1_2yiqf")
 
 [node name="Marker2D" type="Marker2D" parent="PlayerController"]
 gizmo_extents = 40.0
+
+[node name="MouseEffect" parent="." instance=ExtResource("19_03o2f")]
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("4_4sovo")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_13s7k")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.534952, 0.113651, 0.682623, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -0.301942
+color = Color(0.501582, 0.456741, 0.89148, 1)
+energy = 1.07
+shadow_enabled = true
+shadow_color = Color(0, 0, 0.129412, 0.54902)
+shadow_filter = 2
+shadow_filter_smooth = 1.5
 
 [node name="Ground2" type="StaticBody2D" parent="."]
 position = Vector2(1244, -76)
@@ -246,12 +268,6 @@ offset_top = -4464.0
 offset_right = -2994.0
 offset_bottom = -1646.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_13s7k")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.534952, 0.113651, 0.682623, 1)
-
 [node name="RainFrogNPC" parent="." instance=ExtResource("20_8h7w1")]
 z_index = 1
 texture_filter = 1
@@ -330,15 +346,6 @@ tile_set = ExtResource("13_ftewl")
 format = 2
 layer_0/tile_data = PackedInt32Array(-655371, 1, 0, -983059, 1, 0, -327722, 1, 0, -196604, 1, 0, -262115, 196609, 1, 65525, 196609, 1, -327707, 589825, 2, -196638, 393217, 2, 327676, 196609, 1, 65520, 393217, 2, -393224, 196609, 1, -720924, 393217, 2, -262116, 1, 0, 196647, 196609, 1, 196648, 393217, 2, 196646, 1, 0, -196590, 196609, 1, 262147, 393217, 0, 262179, 589825, 0, 393237, 589825, 0, 524295, 393217, 0, 327664, 393217, 0, -196626, 393217, 0, -327705, 393217, 0, -655386, 589825, 0, -655399, 393217, 0, -720939, 589825, 0, -1114149, 589825, 0, -1114145, 393217, 0, -1114135, 393217, 0, 393207, 589825, 0, 655337, 393217, 0, -393263, 589825, 2, -327692, 589825, 2, 196612, 589825, 2, 131100, 589825, 2, -524310, 589825, 2, -720936, 589825, 2, -655377, 589825, 2, -131091, 589825, 2, 327667, 589825, 0, -262163, 589825, 0, -524335, 589825, 0, -852008, 589825, 0, -458779, 589825, 0)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-rotation = -0.301942
-color = Color(0.501582, 0.456741, 0.89148, 1)
-energy = 1.07
-shadow_enabled = true
-shadow_color = Color(0, 0, 0.129412, 0.54902)
-shadow_filter = 2
-shadow_filter_smooth = 1.5
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(851, 1386)
 color = Color(0.875856, 0.423078, 0, 1)
@@ -416,7 +423,5 @@ position = Vector2(-2372, -1891)
 scale = Vector2(6.63281, 1.08594)
 texture = ExtResource("16_wtwnb")
 script = ExtResource("17_arvy3")
-
-[node name="MouseEffect" parent="." instance=ExtResource("19_03o2f")]
 
 [connection signal="ready" from="PlayerController" to="PlayerController" method="_on_ready"]

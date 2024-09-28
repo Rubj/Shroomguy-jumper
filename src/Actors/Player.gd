@@ -44,7 +44,6 @@ var Time_Life_Double : float = 0.2
 var standing_cshape = preload("res://resources/shroomguy_standing_cshape.tres")
 var crouching_cshape = preload("res://resources/shroomguy_crouching_cshape.tres")
 
-
 func _ready():
 	$".".visible = true
 	attacking = false

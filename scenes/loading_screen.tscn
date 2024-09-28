@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://btc2yx8n15isg"]
+
+[ext_resource type="FontFile" uid="uid://darn62xgo1661" path="res://assets/fonts/pixelpoiiz.ttf" id="1_2gk2l"]
+[ext_resource type="Script" path="res://src/Actors/loading_screen.gd" id="1_r3atb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xj33"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmg48"]
+bg_color = Color(0.228472, 0.168568, 0.508132, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3atb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="loading_text" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1017.0
+theme_override_colors/font_color = Color(0.528167, 0.525813, 1, 1)
+theme_override_fonts/font = ExtResource("1_2gk2l")
+theme_override_font_sizes/font_size = 71
+text = ".  Loading  ."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="progress_number" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.699521, 0.706665, 0.854733, 1)
+theme_override_fonts/font = ExtResource("1_2gk2l")
+theme_override_font_sizes/font_size = 21
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 751.0
+offset_top = 629.0
+offset_right = -751.0
+offset_bottom = -440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6xj33")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nmg48")
+value = 1.0
+show_percentage = false
