@@ -5,6 +5,7 @@ extends Control
 
 func _ready() -> void:
 	add_screen_items()
+	Saver.SCREEN = DisplayServer.window_get_current_screen()
 	option_button.select(Saver.SCREEN)
 	option_button.item_selected.connect(on_screen_selected)
 
@@ -17,3 +18,4 @@ func on_screen_selected(index : int) -> void:
 	Saver.SCREEN = index
 	Saver.setWindowValues()
 	
+
