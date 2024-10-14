@@ -6,6 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://bgoahdhp20a66" path="res://scenes/Settings Menu/resolution_mode_button.tscn" id="2_7bef2"]
 [ext_resource type="PackedScene" uid="uid://dbo12h5ueq3ey" path="res://scenes/Settings Menu/screen_changer_button.tscn" id="5_a7jfq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpp8s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5uf3"]
+content_margin_left = 84.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("1_6c52g")
+texture_margin_left = 448.0
+texture_margin_top = 64.0
+texture_margin_right = 448.0
+texture_margin_bottom = 64.0
+modulate_color = Color(1, 1, 1, 0.862745)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir704"]
 content_margin_left = 50.0
 content_margin_right = 50.0
@@ -57,21 +72,6 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpp8s"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5uf3"]
-content_margin_left = 84.0
-content_margin_top = 64.0
-content_margin_right = 64.0
-content_margin_bottom = 64.0
-texture = ExtResource("1_6c52g")
-texture_margin_left = 448.0
-texture_margin_top = 64.0
-texture_margin_right = 448.0
-texture_margin_bottom = 64.0
-modulate_color = Color(1, 1, 1, 0.862745)
-
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -91,23 +91,25 @@ anchor_bottom = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_selected_color = Color(0.476307, 0.299787, 1, 1)
-theme_override_colors/font_hovered_color = Color(0.375092, 0.359806, 0.991965, 1)
-theme_override_colors/font_unselected_color = Color(0.32919, 0.255662, 0.983057, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_unselected_color = Color(0.32919, 0.255662, 0.983057, 1)
+theme_override_colors/font_hovered_color = Color(0.375092, 0.359806, 0.991965, 1)
+theme_override_colors/font_selected_color = Color(0.476307, 0.299787, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_7ukys")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_gpp8s")
+theme_override_styles/panel = SubResource("StyleBoxTexture_r5uf3")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_ir704")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_joalr")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_22q7p")
-theme_override_styles/tab_focus = SubResource("StyleBoxFlat_gpp8s")
-theme_override_styles/panel = SubResource("StyleBoxTexture_r5uf3")
 tab_alignment = 1
+current_tab = 0
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 focus_mode = 0
+metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
 layout_mode = 1
@@ -143,6 +145,7 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 focus_mode = 0
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controlls"]
 layout_mode = 1
@@ -185,6 +188,7 @@ text = "C5"
 visible = false
 layout_mode = 2
 focus_mode = 0
+metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
 layout_mode = 1
@@ -227,6 +231,7 @@ text = "Sound 5"
 visible = false
 layout_mode = 2
 focus_mode = 0
+metadata/_tab_index = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Accesibility"]
 layout_mode = 1

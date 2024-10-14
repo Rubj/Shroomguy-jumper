@@ -11,6 +11,14 @@
 shader = ExtResource("2_0a1ry")
 shader_parameter/amount = 0.5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbe60"]
+texture = ExtResource("4_demv8")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.843184, 0.843184, 0.843184, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2gxl"]
 resource_local_to_scene = true
 texture = ExtResource("4_demv8")
@@ -19,14 +27,6 @@ texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 modulate_color = Color(0.707966, 0.707967, 0.707966, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbe60"]
-texture = ExtResource("4_demv8")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-modulate_color = Color(0.843184, 0.843184, 0.843184, 1)
 
 [node name="PauseMenu" type="Control"]
 z_index = 15
@@ -78,71 +78,71 @@ theme_override_constants/separation = 10
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.369848, 0.600561, 1, 1)
 theme_override_colors/font_hover_color = Color(0.57441, 0.732679, 1, 1)
+theme_override_colors/font_color = Color(0.369848, 0.600561, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_irxpn")
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wbe60")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w2gxl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 text = "Resume"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_hover_color = Color(0.57441, 0.732679, 1, 1)
+theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_irxpn")
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wbe60")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w2gxl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 text = "Settings"
 
 [node name="TitleScreen" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_hover_color = Color(0.57441, 0.732679, 1, 1)
+theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_irxpn")
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wbe60")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w2gxl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 text = "Title Screen"
 
 [node name="Respawn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_hover_color = Color(0.57441, 0.732679, 1, 1)
+theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_irxpn")
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wbe60")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w2gxl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 text = "Respawn"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_hover_color = Color(0.57441, 0.732679, 1, 1)
+theme_override_colors/font_color = Color(0.368627, 0.6, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_irxpn")
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wbe60")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w2gxl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2gxl")
 text = "Quit"
 
 [node name="Settings_Menu" parent="." instance=ExtResource("3_fmtdb")]

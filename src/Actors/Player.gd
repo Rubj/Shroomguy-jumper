@@ -275,4 +275,3 @@ func clear_dash_double():
 	get_parent().add_child(dash_double)
 	await get_tree().create_timer(Time_Life_Double).timeout
 	dash_double.queue_free()
-

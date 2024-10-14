@@ -18,4 +18,3 @@ func on_screen_selected(index : int) -> void:
 	Saver.SCREEN = index
 	Saver.setWindowValues()
 	
-

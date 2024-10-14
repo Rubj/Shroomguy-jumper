@@ -9,4 +9,3 @@ func _process(delta: float) -> void:
 
 func _zoom_changed():
 	material.set_shader_parameter("y_zoom", get_viewport_transform().get_scale().y)
-

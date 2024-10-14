@@ -78,4 +78,3 @@ func saveSettings() -> void: #TODO call this on exit also
 	print('save! ', dict)
 	var saveFile = FileAccess.open('cool_save.json', FileAccess.WRITE)
 	saveFile.store_string(JSON.stringify(dict))
-

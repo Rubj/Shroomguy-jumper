@@ -37,5 +37,3 @@ func _on_exit_settings_menu() -> void:
 
 func handle_connecting_signals() -> void:
 	settings_menu.exit_settings_menu.connect(_on_exit_settings_menu)
-
-

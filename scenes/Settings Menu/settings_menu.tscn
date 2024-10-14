@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://src/Actors/settings_menu.gd" id="1_3mcst"]
 [ext_resource type="PackedScene" uid="uid://dc07hn21qf3k3" path="res://scenes/Settings Menu/settings_tab_container.tscn" id="3_es2c5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unudo"]
-bg_color = Color(0.22105, 0.141202, 0.372767, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxved"]
+bg_color = Color(0.34687, 0.234913, 0.563254, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -20,8 +20,8 @@ expand_margin_top = 4.0
 expand_margin_right = 10.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxved"]
-bg_color = Color(0.34687, 0.234913, 0.563254, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unudo"]
+bg_color = Color(0.22105, 0.141202, 0.372767, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -91,6 +91,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("1_3au11")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_unudo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qxved")
+theme_override_styles/normal = SubResource("StyleBoxFlat_unudo")
 text = "Save and Exit"
