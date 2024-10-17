@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://kb3h7dpr4me6"]
+[gd_scene load_steps=37 format=4 uid="uid://kb3h7dpr4me6"]
 
 [ext_resource type="Script" path="res://src/Actors/PlayerController.gd" id="1_2yiqf"]
 [ext_resource type="Script" path="res://src/Actors/world.gd" id="1_3f8s3"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://src/Actors/water.gd" id="17_arvy3"]
 [ext_resource type="PackedScene" uid="uid://2mkq2gy1d7me" path="res://scenes/mouse_effect.tscn" id="19_03o2f"]
 [ext_resource type="PackedScene" uid="uid://du5iieerl0plq" path="res://scenes/rain_frog_npc.tscn" id="20_8h7w1"]
+[ext_resource type="PackedScene" uid="uid://384ns7rvkmuc" path="res://scenes/shroom_lamp.tscn" id="24_fx60r"]
 
 [sub_resource type="Environment" id="Environment_13s7k"]
 background_mode = 3
@@ -134,7 +135,7 @@ shader_parameter/CAST_COLOR = Color(0, 0, 0, 1)
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 0.5
 shader_parameter/scale_y = 2.25
-shader_parameter/y_zoom = 0.890899
+shader_parameter/y_zoom = 1.49831
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_afyt3")
 
 [node name="World" type="Node2D"]
@@ -348,7 +349,7 @@ tile_set = SubResource("TileSet_ujwks")
 modulate = Color(1, 1, 0.607843, 1)
 texture_filter = 1
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD1//X/AQAAAAAAAADt//D/AQAAAAAAAADW//r/AQAAAAAAAAAEAP3/AQAAAAAAAAAdAPz/AQADAAEAAAD1/wAAAQADAAEAAADl//r/AQAJAAIAAADi//z/AQAGAAIAAAD8/wQAAQADAAEAAADw/wAAAQAGAAIAAAD4//n/AQADAAEAAADk//T/AQAGAAIAAAAcAPz/AQAAAAAAAAAnAAMAAQADAAEAAAAoAAMAAQAGAAIAAAAmAAMAAQAAAAAAAAASAP3/AQADAAEAAAADAAQAAQAGAAAAAAAjAAQAAQAJAAAAAAAVAAYAAQAJAAAAAAAHAAgAAQAGAAAAAADw/wQAAQAGAAAAAADu//z/AQAGAAAAAADn//r/AQAGAAAAAADm//X/AQAJAAAAAADZ//X/AQAGAAAAAADV//T/AQAJAAAAAADb/+7/AQAJAAAAAADf/+7/AQAGAAAAAADp/+7/AQAGAAAAAAD3/wUAAQAJAAAAAADp/wkAAQAGAAAAAADR//n/AQAJAAIAAAD0//r/AQAJAAIAAAAEAAMAAQAJAAIAAAAcAAIAAQAJAAIAAADq//f/AQAJAAIAAADY//T/AQAJAAIAAADv//X/AQAJAAIAAADt//3/AQAJAAIAAADz/wQAAQAJAAAAAADt//v/AQAJAAAAAADR//f/AQAJAAAAAADY//L/AQAJAAAAAADl//j/AQAJAAAAAADy//f/AQAAAAUAAAA=")
+tile_map_data = PackedByteArray("AAD1//X/AQAAAAAAAADt//D/AQAAAAAAAADW//r/AQAAAAAAAAAEAP3/AQAAAAAAAAAdAPz/AQADAAEAAAD1/wAAAQADAAEAAADl//r/AQAJAAIAAADi//z/AQAGAAIAAAD8/wQAAQADAAEAAADw/wAAAQAGAAIAAAD4//n/AQADAAEAAADk//T/AQAGAAIAAAAcAPz/AQAAAAAAAAAnAAMAAQADAAEAAAAoAAMAAQAGAAIAAAAmAAMAAQAAAAAAAAASAP3/AQADAAEAAAADAAQAAQAGAAAAAAAjAAQAAQAJAAAAAAAVAAYAAQAJAAAAAAAHAAgAAQAGAAAAAADw/wQAAQAGAAAAAADu//z/AQAGAAAAAADn//r/AQAGAAAAAADm//X/AQAJAAAAAADZ//X/AQAGAAAAAADV//T/AQAJAAAAAADb/+7/AQAJAAAAAADf/+7/AQAGAAAAAADp/+7/AQAGAAAAAAD3/wUAAQAJAAAAAADp/wkAAQAGAAAAAADR//n/AQAJAAIAAAD0//r/AQAJAAIAAAAEAAMAAQAJAAIAAAAcAAIAAQAJAAIAAADq//f/AQAJAAIAAADY//T/AQAJAAIAAADv//X/AQAJAAIAAADt//3/AQAJAAIAAADz/wQAAQAJAAAAAADt//v/AQAJAAAAAADR//f/AQAJAAAAAADY//L/AQAJAAAAAADl//j/AQAJAAAAAAA=")
 tile_set = ExtResource("13_ftewl")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -361,6 +362,7 @@ texture = ExtResource("8_xdwp0")
 texture_scale = 0.76
 
 [node name="PointLightforLightShroom" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(-1731, -1170)
 color = Color(0.886275, 0.258824, 0.054902, 1)
 energy = 3.97
@@ -437,5 +439,11 @@ position = Vector2(-2372, -1891)
 scale = Vector2(6.63281, 1.08594)
 texture = ExtResource("16_wtwnb")
 script = ExtResource("17_arvy3")
+
+[node name="Shroom Lamp2" parent="." instance=ExtResource("24_fx60r")]
+position = Vector2(-3647, -2013)
+
+[node name="Shroom Lamp" parent="." instance=ExtResource("24_fx60r")]
+position = Vector2(-1726, -1005)
 
 [connection signal="ready" from="PlayerController" to="PlayerController" method="_on_ready"]
