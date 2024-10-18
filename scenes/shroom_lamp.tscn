@@ -1,10 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://384ns7rvkmuc"]
+[gd_scene load_steps=7 format=3 uid="uid://384ns7rvkmuc"]
 
 [ext_resource type="Texture2D" uid="uid://dvkib8adrf5u2" path="res://assets/textures/masks/light mask 01.png" id="1_3ur6a"]
 [ext_resource type="Texture2D" uid="uid://bvxnvprng8or4" path="res://assets/textures/lamps/Shroom Lamp v02.png" id="2_w77jh"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r85nv"]
 polygon = PackedVector2Array(23, -226, 8, -234, -24, -234, -36, -226, -29, -227, -17, -231, -5, -232, 7, -230, 17, -227)
+
+[sub_resource type="Curve" id="Curve_mmm4f"]
+_data = [Vector2(0, 0.00243616), 0.0, 0.0, 0, 0, Vector2(0.501539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_whye4"]
+curve = SubResource("Curve_mmm4f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hw5n0"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+spread = 180.0
+gravity = Vector3(50, 50, 0)
+scale_min = 0.1
+scale_max = 1.5
+color = Color(1, 0.905882, 0.101961, 0.729412)
+alpha_curve = SubResource("CurveTexture_whye4")
+turbulence_enabled = true
+turbulence_noise_strength = 4.41
+turbulence_noise_scale = 5.154
+turbulence_noise_speed_random = 1.08
+turbulence_influence_min = 0.046
+turbulence_influence_max = 0.368
+turbulence_initial_displacement_min = -34.9
+turbulence_initial_displacement_max = 34.9
 
 [node name="Shroom Lamp" type="Node2D"]
 z_index = -1
@@ -30,3 +57,11 @@ texture_scale = 1.01
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(30, -148)
 texture = ExtResource("2_w77jh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-6, -221)
+amount = 12
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_hw5n0")
+lifetime = 4.23
+randomness = 1.0
