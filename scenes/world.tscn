@@ -135,7 +135,7 @@ shader_parameter/CAST_COLOR = Color(0, 0, 0, 1)
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 0.5
 shader_parameter/scale_y = 2.25
-shader_parameter/y_zoom = 0.707107
+shader_parameter/y_zoom = 0.15749
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_afyt3")
 
 [node name="World" type="Node2D"]
@@ -300,6 +300,14 @@ scale = Vector2(1.50414, 1.50414)
 texture = ExtResource("3_tpeul")
 metadata/_edit_lock_ = true
 
+[node name="TaustParallaxKatsetusV2" type="Sprite2D" parent="."]
+modulate = Color(0.415788, 0.39669, 0.527748, 1)
+z_index = -3
+position = Vector2(-3705, -1383)
+scale = Vector2(1.952, 1.952)
+texture = ExtResource("3_tpeul")
+metadata/_edit_lock_ = true
+
 [node name="TextEdit" parent="." instance=ExtResource("4_e8pk0")]
 text = "ToDo
 - Run start line and finish line with timer
@@ -423,6 +431,12 @@ position = Vector2(454, 930)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("11_lfow4")]
 position = Vector2(2371, -346)
+
+[node name="Checkpoint5" parent="." instance=ExtResource("11_lfow4")]
+position = Vector2(-4537, -1633)
+
+[node name="Checkpoint6" parent="." instance=ExtResource("11_lfow4")]
+position = Vector2(-2894, -1633)
 
 [node name="water" type="Sprite2D" parent="."]
 z_index = 1
