@@ -135,7 +135,7 @@ shader_parameter/CAST_COLOR = Color(0, 0, 0, 1)
 shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/wave_strength = 0.5
 shader_parameter/scale_y = 2.25
-shader_parameter/y_zoom = 0.176777
+shader_parameter/y_zoom = 0.105112
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_afyt3")
 
 [node name="World" type="Node2D"]
@@ -369,16 +369,6 @@ shadow_filter_smooth = 1.5
 texture = ExtResource("8_xdwp0")
 texture_scale = 0.76
 
-[node name="PointLightforLightShroom" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(-1731, -1170)
-color = Color(0.886275, 0.258824, 0.054902, 1)
-energy = 3.97
-shadow_filter = 2
-shadow_filter_smooth = 1.5
-texture = ExtResource("8_xdwp0")
-texture_scale = 1.01
-
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(2357, 780)
 color = Color(0.875856, 0.423078, 0, 1)
@@ -391,7 +381,7 @@ texture_scale = 0.76
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(2056, 0)
 color = Color(0.875856, 0.423078, 0, 1)
-energy = 5.52
+energy = 5.11
 shadow_filter = 2
 shadow_filter_smooth = 1.5
 texture = ExtResource("8_xdwp0")
@@ -445,14 +435,6 @@ position = Vector2(-2894, -1633)
 z_index = 1
 material = SubResource("ShaderMaterial_bm2f3")
 position = Vector2(-1670.5, 267.5)
-scale = Vector2(6.63281, 1.08594)
-texture = ExtResource("16_wtwnb")
-script = ExtResource("17_arvy3")
-
-[node name="water2" type="Sprite2D" parent="."]
-z_index = 1
-material = SubResource("ShaderMaterial_bm2f3")
-position = Vector2(-2372, -1891)
 scale = Vector2(6.63281, 1.08594)
 texture = ExtResource("16_wtwnb")
 script = ExtResource("17_arvy3")

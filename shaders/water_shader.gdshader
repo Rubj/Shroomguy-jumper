@@ -28,34 +28,34 @@ void vertex() {
     //move water up and down
     VERTEX.y += sin(TIME) * 0.01;
 }
- 
+
 void fragment() {
     //get ripple noise
     vec2 uv = UV + speed * TIME;
-    
+
     //get the noise from fast noise
     vec2 noise = texture(fast_noise, uv).rg;
- 
+
     //get size of object shader is on
     float uv_height = (SCREEN_PIXEL_SIZE.y / TEXTURE_PIXEL_SIZE.y);
- 
+
     //calc where reflection is coming from
     vec2 reflected_uv = vec2(SCREEN_UV.x, SCREEN_UV.y - (uv_height * UV.y * scale_y * y_zoom));
-    
+
     //get reflection pixel
     vec4 reflection = texture(SCREEN_TEXTURE, reflected_uv);
     //reflect without waves
     //COLOR = reflection + CAST_COLOR
-    
+
     //calc waves for ripples
     vec4 waves = texture(SCREEN_TEXTURE, reflected_uv + (noise - 0.5) * y_zoom * (wave_strength / 100.0));
-    
+
 	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	vec4 text = texture(TEXTURE, UV);
-	
+
 	text.rgba *= (vignette_rgb.rgba);
 	text.rgba *= (1.0 - vignette(UV));
-	
+
     //apply wave ripples and selected color
     COLOR = waves + CAST_COLOR * vec4(color.rgb,text.a);
 

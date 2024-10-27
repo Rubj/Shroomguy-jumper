@@ -15,7 +15,7 @@ class_name Player
 
 @onready var ap = $AnimationPlayer
 @onready var aps = $DealDamageZone/AnimationPlayerSmear
-@onready var sprite = $Sprite2D
+@export var sprite : Sprite2D
 @onready var cshape = $CollisionShape2D
 @onready var crouch_raycast1 = $CrouchRaycast_1
 @onready var crouch_raycast2 = $CrouchRaycast_2
@@ -258,16 +258,17 @@ func die():
 	Global.respawn_player()
 
 func clear_dash_double():
-	var dash_double = $Sprite2D.duplicate(true)
-	dash_double.material = $Sprite2D.material.duplicate(true)
+	var dash_double = sprite.duplicate(true)
+	dash_double.material = sprite.material.duplicate(true)
 	dash_double.material.set_shader_parameter("opacity", 0.3)
 	dash_double.material.set_shader_parameter("r", 0.0)
 	dash_double.material.set_shader_parameter("g", 0.0)
 	dash_double.material.set_shader_parameter("b", 0.8)
+	dash_double.material.set_shader_parameter("sampled_color", 0)
 	dash_double.material.set_shader_parameter("mix_color", 0.7)
 	dash_double.position.y += position.y
 	
-	if $Sprite2D.scale.x == -1:
+	if sprite.scale.x == -1:
 		dash_double.position.x = position.x - dash_double.position.x
 	else:
 		dash_double.position.x += position.x

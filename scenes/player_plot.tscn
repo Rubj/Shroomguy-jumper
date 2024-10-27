@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://cldau5f2k2qso"]
+[gd_scene load_steps=48 format=3 uid="uid://cldau5f2k2qso"]
 
 [ext_resource type="Script" path="res://src/Actors/Player.gd" id="1_0lbm8"]
 [ext_resource type="Texture2D" uid="uid://fkmcasopwjol" path="res://assets/textures/player Plot/shroomguy idle spritesheet.png" id="2_qadvj"]
 [ext_resource type="Shader" path="res://shaders/player_plot_dash.gdshader" id="2_remhm"]
 [ext_resource type="PackedScene" uid="uid://ds21df7wwvr4l" path="res://scenes/hud_and_camera.tscn" id="3_10vaf"]
+[ext_resource type="Shader" path="res://shaders/balatro_paint.gdshader" id="4_lpb2m"]
 [ext_resource type="Texture2D" uid="uid://c275pc73bbo63" path="res://assets/textures/player Plot/shroomguy crouch idle spritesheet.png" id="4_pvx3n"]
 [ext_resource type="Texture2D" uid="uid://bdious5drjboj" path="res://assets/textures/player Plot/shroomguy crouch walk spritesheet.png" id="5_gj30b"]
 [ext_resource type="Texture2D" uid="uid://bodcdctps5jj0" path="res://assets/textures/player Plot/shroomguy dash roll spritesheet.png" id="6_y6mq6"]
@@ -21,6 +22,14 @@
 [ext_resource type="Script" path="res://src/Actors/ViewLight.gd" id="15_ks7g5"]
 [ext_resource type="Texture2D" uid="uid://by51b43ajnrkl" path="res://assets/textures/smears/smeer double attack 01 spritesheet.png" id="15_x6a2f"]
 
+[sub_resource type="Gradient" id="Gradient_m8v7o"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.494118, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iil1f"]
+gradient = SubResource("Gradient_m8v7o")
+fill_from = Vector2(0, 0.350427)
+fill_to = Vector2(0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ery4x"]
 shader = ExtResource("2_remhm")
 shader_parameter/opacity = 1.0
@@ -28,6 +37,24 @@ shader_parameter/r = null
 shader_parameter/g = null
 shader_parameter/b = 0.0
 shader_parameter/mix_color = 0.0
+shader_parameter/gradient_amount = 0.5
+shader_parameter/gradient = SubResource("GradientTexture2D_iil1f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4cdl"]
+shader = ExtResource("4_lpb2m")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.403922, 0.2, 1, 1)
+shader_parameter/colour_2 = Color(0.133333, 0, 0.627451, 1)
+shader_parameter/colour_3 = Color(0.509804, 0.694118, 1, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.135
+shader_parameter/pixel_filter = 700.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba7lh"]
 size = Vector2(66, 68)
@@ -1201,14 +1228,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbrke"]
 radius = 35.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player", "bouncable"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["Player", "bouncable"]]
 z_index = 1
 script = ExtResource("1_0lbm8")
 gravity = 30
 jump_force = 600
 dash_speed = 1000
+sprite = NodePath("Sprite2DPlot")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2DPlot" type="Sprite2D" parent="."]
+clip_children = 2
 material = SubResource("ShaderMaterial_ery4x")
 position = Vector2(1, -51)
 scale = Vector2(0.11, 0.11)
@@ -1216,12 +1245,25 @@ texture = ExtResource("2_qadvj")
 hframes = 16
 frame = 1
 
+[node name="ColorRect" type="ColorRect" parent="Sprite2DPlot"]
+material = SubResource("ShaderMaterial_w4cdl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -500.0
+offset_right = -500.0
+offset_bottom = -500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.713726, 0.772549, 1, 0.313726)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -36)
 shape = SubResource("RectangleShape2D_ba7lh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("../Sprite2DPlot")
 libraries = {
 "": SubResource("AnimationLibrary_ilspw")
 }
